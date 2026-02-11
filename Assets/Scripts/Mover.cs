@@ -18,10 +18,19 @@ public class Mover : MonoBehaviour
     {
         if(Mouse.current.leftButton.wasPressedThisFrame)
         {
-            lastRay = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+            MoveToCursor();
         }
-        Debug.DrawRay(lastRay.origin, lastRay.direction * 100);
+    }
 
-        agent.SetDestination(target.transform.position);
+    private void MoveToCursor()
+    {
+        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        RaycastHit hit;
+        bool hasHit = Physics.Raycast(ray, out hit);
+
+        if (hasHit)
+        {
+            agent.SetDestination(hit.point);
+        }
     }
 }
