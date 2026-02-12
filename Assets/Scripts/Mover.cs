@@ -13,7 +13,7 @@ public class Mover : MonoBehaviour
 
     void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current.leftButton.isPressed)
         {
             MoveToCursor();
         }
