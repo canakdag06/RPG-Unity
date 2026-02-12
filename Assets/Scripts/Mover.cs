@@ -6,20 +6,18 @@ public class Mover : MonoBehaviour
 {
     [SerializeField] private Transform target;
 
-    private NavMeshAgent agent;
-    Ray lastRay;
+    [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private Animator animator;
 
-    void Start()
-    {
-        agent = GetComponent<NavMeshAgent>();
-    }
+    private const string ForwardSpeed = "forwardSpeed"; 
 
     void Update()
     {
-        if(Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             MoveToCursor();
         }
+        UpdateAnimator();
     }
 
     private void MoveToCursor()
@@ -32,5 +30,13 @@ public class Mover : MonoBehaviour
         {
             agent.SetDestination(hit.point);
         }
+    }
+
+    private void UpdateAnimator()
+    {
+        Vector3 velocity = agent.velocity;
+        Vector3 localVelocity = transform.InverseTransformDirection(velocity);
+        float speed = localVelocity.z;
+        animator.SetFloat(ForwardSpeed, speed);
     }
 }
