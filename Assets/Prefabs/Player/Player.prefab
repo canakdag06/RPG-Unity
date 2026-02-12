@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2195402951451774948}
-  - component: {fileID: 8566248295670998011}
   - component: {fileID: 4361488922919772450}
   - component: {fileID: 6798315265316899125}
+  - component: {fileID: 8566248295670998011}
+  - component: {fileID: 5729278452932697784}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -35,21 +36,6 @@ Transform:
   - {fileID: 2696594976055410048}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8566248295670998011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886560329797105164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f82688954a5b845a03ca06ba28845a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Mover
-  target: {fileID: 0}
-  agent: {fileID: 4361488922919772450}
-  animator: {fileID: 6798315265316899125}
 --- !u!195 &4361488922919772450
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -94,6 +80,34 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8566248295670998011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886560329797105164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f82688954a5b845a03ca06ba28845a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mover
+  target: {fileID: 0}
+  agent: {fileID: 4361488922919772450}
+  animator: {fileID: 6798315265316899125}
+--- !u!114 &5729278452932697784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886560329797105164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f55f3558a2613d41b7bc37b256ae3a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  mover: {fileID: 8566248295670998011}
 --- !u!1001 &2696594976055498906
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,27 +9,16 @@ public class Mover : MonoBehaviour
     [SerializeField] private NavMeshAgent agent;
     [SerializeField] private Animator animator;
 
-    private const string ForwardSpeed = "forwardSpeed"; 
+    private const string ForwardSpeed = "forwardSpeed";
 
     void Update()
     {
-        if (Mouse.current.leftButton.isPressed)
-        {
-            MoveToCursor();
-        }
         UpdateAnimator();
     }
 
-    private void MoveToCursor()
+    public void MoveTo(Vector3 position)
     {
-        Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        RaycastHit hit;
-        bool hasHit = Physics.Raycast(ray, out hit);
-
-        if (hasHit)
-        {
-            agent.SetDestination(hit.point);
-        }
+        agent.destination = position;
     }
 
     private void UpdateAnimator()
