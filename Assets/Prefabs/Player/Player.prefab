@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5849d19b5288c4f8357f927248bafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Fighter
+  weaponRange: 2
 --- !u!1001 &2696594976055498906
 PrefabInstance:
   m_ObjectHideFlags: 0
