@@ -40,18 +40,13 @@ namespace RPG.Control
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
                 if (target == null) continue;
 
-                if (Mouse.current.leftButton.isPressed)
+                if (Mouse.current.rightButton.isPressed)
                 {
                     GetComponent<Fighter>().Attack(target);
                 }
                 return true;
             }
             return false;
-        }
-
-        private void MoveToCursor()
-        {
-
         }
 
         private static Ray GetMouseRay()
