@@ -14,6 +14,11 @@ namespace RPG.Combat
         {
 
         }
+
+        public void Attack(CombatTarget target)
+        {
+            Debug.Log("Attack!!!");
+        }
     }
 
 }
