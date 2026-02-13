@@ -22,7 +22,7 @@ namespace RPG.Control
 
             if (hasHit)
             {
-                if (Mouse.current.leftButton.isPressed)
+                if (Mouse.current.rightButton.isPressed)
                 {
                     mover.MoveTo(hit.point);
                 }
