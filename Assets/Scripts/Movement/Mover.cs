@@ -1,26 +1,18 @@
-using RPG.Combat;
 using RPG.Core;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.InputSystem;
 
 namespace RPG.Movement
 {
-    public class Mover : MonoBehaviour
+    public class Mover : MonoBehaviour, IAction
     {
         [SerializeField] private Transform target;
 
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private Animator animator;
 
-        private Fighter fighter;
 
         private const string ForwardSpeed = "forwardSpeed";
-
-        private void Awake()
-        {
-            fighter = GetComponent<Fighter>();
-        }
 
 
         void Update()
@@ -30,7 +22,6 @@ namespace RPG.Movement
         public void StartMoving(Vector3 destination)
         {
             GetComponent<ActionScheduler>().StartAction(this);
-            fighter.CancelAttack();
             MoveTo(destination);
         }
 
@@ -41,7 +32,7 @@ namespace RPG.Movement
 
         }
 
-        public void Stop()
+        public void Cancel()
         {
             agent.isStopped = true;
         }
