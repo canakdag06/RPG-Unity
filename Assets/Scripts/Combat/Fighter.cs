@@ -11,10 +11,14 @@ namespace RPG.Combat
 
         private Transform target;
         private Mover mover;
+        private Animator animator;
+
+        private const string attackTrigger = "attack";
 
         private void Awake()
         {
             mover = GetComponent<Mover>();
+            animator = GetComponent<Animator>();
         }
 
         void Update()
@@ -28,6 +32,7 @@ namespace RPG.Combat
             else
             {
                 mover.Cancel();
+                Attack();
             }
         }
 
@@ -42,6 +47,12 @@ namespace RPG.Combat
             this.target = null;
         }
 
+        // Animation Event
+        void Hit()
+        {
+
+        }
+
         private bool IsTargetInRange()
         {
             float distance = (target.position - transform.position).sqrMagnitude;
@@ -50,6 +61,11 @@ namespace RPG.Combat
                 return true;
             else
                 return false;
+        }
+
+        private void Attack()
+        {
+            animator.SetTrigger(attackTrigger);
         }
 
     }
