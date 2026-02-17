@@ -39,7 +39,7 @@ namespace RPG.Control
             {
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
 
-                if(!target.GetComponent<Fighter>().CanAttack(target))
+                if(!GetComponent<Fighter>().CanAttack(target))
                 {
                     continue;
                 }
