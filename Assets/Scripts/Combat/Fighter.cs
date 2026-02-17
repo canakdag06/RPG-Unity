@@ -74,6 +74,8 @@ namespace RPG.Combat
 
         private void AttackBehaviour()
         {
+            transform.LookAt(target.transform.position);
+
             if (timeSinceLastAttack > attackCooldown)
             {
                 // This will trigger the Hit() event.
