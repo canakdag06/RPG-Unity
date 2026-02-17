@@ -53,6 +53,7 @@ namespace RPG.Combat
         public void Cancel()
         {
             this.target = null;
+            animator.ResetTrigger(attackTrigger);
             animator.SetTrigger(stopAttackTrigger);
         }
 
@@ -67,6 +68,8 @@ namespace RPG.Combat
         // Animation Event
         void Hit()
         {
+            if (target == null) { return; }
+
             target.TakeDamage(weaponDamage);
         }
 
@@ -87,6 +90,7 @@ namespace RPG.Combat
             if (timeSinceLastAttack > attackCooldown)
             {
                 // This will trigger the Hit() event.
+                animator.ResetTrigger(stopAttackTrigger);
                 animator.SetTrigger(attackTrigger);
                 timeSinceLastAttack = 0f;
             }
