@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2195402951451774948}
   - component: {fileID: 4361488922919772450}
   - component: {fileID: 6798315265316899125}
+  - component: {fileID: 8191765548830875268}
   - component: {fileID: 8566248295670998011}
   - component: {fileID: 5729278452932697784}
   - component: {fileID: 1874938760815827230}
@@ -82,6 +83,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8191765548830875268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886560329797105164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f4c184790504d43a6f5edec3c06722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Health
+  health: 100
 --- !u!114 &8566248295670998011
 MonoBehaviour:
   m_ObjectHideFlags: 0
