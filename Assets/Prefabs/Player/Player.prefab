@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Fighter
   weaponRange: 2
+  attackCooldown: 2
 --- !u!114 &1065251960489458018
 MonoBehaviour:
   m_ObjectHideFlags: 0
