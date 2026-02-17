@@ -56,6 +56,14 @@ namespace RPG.Combat
             animator.SetTrigger(stopAttackTrigger);
         }
 
+        public bool CanAttack(CombatTarget combatTarget)
+        {
+            if (combatTarget == null) return false;
+
+            Health targetToTest = combatTarget.GetComponent<Health>();
+            return targetToTest != null && !targetToTest.IsDead;
+        }
+
         // Animation Event
         void Hit()
         {
