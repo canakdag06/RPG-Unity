@@ -7,10 +7,19 @@ namespace RPG.Combat
     {
         [SerializeField] private float health = 100f;
 
+        private const string dieTrigger = "die";
+
+        private bool isDead = false;
+
         public void TakeDamage(float damage)
         {
             health = Mathf.Max(health - damage, 0f);
-            print(health);
+
+            if (health == 0f && !isDead)
+            {
+                GetComponent<Animator>().SetTrigger(dieTrigger);
+                isDead = true;
+            }
         }
 
     }
