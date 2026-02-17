@@ -15,11 +15,18 @@ namespace RPG.Combat
         {
             health = Mathf.Max(health - damage, 0f);
 
-            if (health == 0f && !isDead)
+            if (health == 0f)
             {
-                GetComponent<Animator>().SetTrigger(dieTrigger);
-                isDead = true;
+                Die();
             }
+        }
+
+        private void Die()
+        {
+            if (isDead) return;
+
+            GetComponent<Animator>().SetTrigger(dieTrigger);
+            isDead = true;
         }
 
     }
