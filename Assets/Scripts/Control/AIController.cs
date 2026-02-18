@@ -17,6 +17,7 @@ namespace RPG.Control
         private GameObject player;
 
         private Vector3 guardPosition;
+        private Quaternion guardRotation;
         private float timeSinceLastSawPlayer = Mathf.Infinity;
 
         private const string playerTag = "Player";
@@ -32,6 +33,7 @@ namespace RPG.Control
         {
             player = GameObject.FindWithTag(playerTag);
             guardPosition = transform.position;
+            guardRotation = transform.rotation;
         }
 
 
@@ -69,6 +71,15 @@ namespace RPG.Control
         private void GuardBehaviour()
         {
             mover.StartMoving(guardPosition);
+
+            if (Vector3.Distance(transform.position, guardPosition) < 0.2f)
+            {
+                transform.rotation = Quaternion.RotateTowards(
+                    transform.rotation,
+                    guardRotation,
+                    360f * Time.deltaTime
+                );
+            }
         }
 
         private bool IsInAttackRange()
