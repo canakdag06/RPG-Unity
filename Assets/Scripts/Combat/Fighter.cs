@@ -43,7 +43,7 @@ namespace RPG.Combat
             }
         }
 
-        public void Attack(CombatTarget target)
+        public void Attack(GameObject target)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             this.target = target.GetComponent<Health>();
@@ -57,7 +57,7 @@ namespace RPG.Combat
             animator.SetTrigger(stopAttackTrigger);
         }
 
-        public bool CanAttack(CombatTarget combatTarget)
+        public bool CanAttack(GameObject combatTarget)
         {
             if (combatTarget == null) return false;
 
