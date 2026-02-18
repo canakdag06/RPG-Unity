@@ -139,6 +139,17 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5826521863176708696}
   m_SourcePrefab: {fileID: 100100000, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+--- !u!114 &1383814525937673720 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8191765548830875268, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+  m_PrefabInstance: {fileID: 7105189994181081980}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697818914512751984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1f4c184790504d43a6f5edec3c06722, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Health
 --- !u!114 &1476012823582693511 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8566248295670998011, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
@@ -168,6 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   mover: {fileID: 1476012823582693511}
+  health: {fileID: 1383814525937673720}
 --- !u!4 &9001877609418732696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2195402951451774948, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}

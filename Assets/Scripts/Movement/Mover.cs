@@ -15,10 +15,24 @@ namespace RPG.Movement
         private const string ForwardSpeed = "forwardSpeed";
 
 
+        private Health health;
+
+        private void Awake()
+        {
+            health = GetComponent<Health>();
+        }
+
+        private void OnEnable()
+        {
+            health.OnDie += DisableNavMeshAgent;
+        }
+
+
         void Update()
         {
             UpdateAnimator();
         }
+
         public void StartMoving(Vector3 destination)
         {
             GetComponent<ActionScheduler>().StartAction(this);
@@ -37,12 +51,22 @@ namespace RPG.Movement
             agent.isStopped = true;
         }
 
+        private void OnDisable()
+        {
+            health.OnDie -= DisableNavMeshAgent;
+        }
+
         private void UpdateAnimator()
         {
             Vector3 velocity = agent.velocity;
             Vector3 localVelocity = transform.InverseTransformDirection(velocity);
             float speed = localVelocity.z;
             animator.SetFloat(ForwardSpeed, speed);
+        }
+
+        private void DisableNavMeshAgent()
+        {
+            agent.enabled = false;
         }
     }
 }

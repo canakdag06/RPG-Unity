@@ -1,4 +1,5 @@
 using RPG.Combat;
+using RPG.Core;
 using RPG.Movement;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -8,9 +9,12 @@ namespace RPG.Control
     public class PlayerController : MonoBehaviour
     {
         [SerializeField] private Mover mover;
+        [SerializeField] private Health health;
 
         void Update()
         {
+            if (health.IsDead) { return; }
+
             if (InteractWithCombat()) return;
             if (SetDestination()) return;
             Debug.Log("NOTHING");

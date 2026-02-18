@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -6,6 +7,9 @@ namespace RPG.Core
     public class Health : MonoBehaviour
     {
         [SerializeField] private float health = 100f;
+
+        public event Action OnDie;
+
         public bool IsDead => isDead;
 
 
@@ -27,8 +31,11 @@ namespace RPG.Core
         {
             if (isDead) return;
 
-            GetComponent<Animator>().SetTrigger(dieTrigger);
             isDead = true;
+            GetComponent<Animator>().SetTrigger(dieTrigger);
+            GetComponent<ActionScheduler>().CancelCurrentAction();
+
+            OnDie.Invoke();
         }
 
     }
