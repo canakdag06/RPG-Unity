@@ -1,5 +1,6 @@
 using RPG.Combat;
 using RPG.Core;
+using RPG.Movement;
 using UnityEngine;
 
 
@@ -9,8 +10,11 @@ namespace RPG.Control
     {
         [SerializeField] float chaseDistance = 5f;
         private Fighter fighter;
+        private Mover mover;
         private Health health;
         private GameObject player;
+
+        private Vector3 guardPosition;
 
         private const string playerTag = "Player";
 
@@ -18,11 +22,13 @@ namespace RPG.Control
         {
             fighter = GetComponent<Fighter>();
             health = GetComponent<Health>();
+            mover = GetComponent<Mover>();
         }
 
         private void Start()
         {
             player = GameObject.FindWithTag(playerTag);
+            guardPosition = transform.position;
         }
 
 
@@ -37,7 +43,7 @@ namespace RPG.Control
             }
             else
             {
-                fighter.Cancel();
+                mover.StartMoving(guardPosition);
             }
         }
 
