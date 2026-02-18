@@ -11,6 +11,7 @@ namespace RPG.Control
     {
         [SerializeField] float chaseDistance = 5f;
         [SerializeField] float suspicionTimer = 5f;
+        [SerializeField] float waypointTimer = 5f;
         [SerializeField] PatrolPath patrolPath;
 
         private Fighter fighter;
@@ -22,6 +23,7 @@ namespace RPG.Control
         private int currentWaypointIndex = 0;
         private Quaternion guardRotation;
         private float timeSinceLastSawPlayer = Mathf.Infinity;
+        private float timeSinceArrivedAtWaypoint = Mathf.Infinity;
 
         private const string playerTag = "Player";
 
@@ -47,7 +49,6 @@ namespace RPG.Control
 
             if (IsInAttackRange() && fighter.CanAttack(player))
             {
-                timeSinceLastSawPlayer = 0f;
                 AttackBehaviour();
             }
             else if (timeSinceLastSawPlayer < suspicionTimer)
@@ -58,11 +59,19 @@ namespace RPG.Control
             {
                 PatrolBehaviour();
             }
+
+            UpdateTimers();
+        }
+
+        private void UpdateTimers()
+        {
             timeSinceLastSawPlayer += Time.deltaTime;
+            timeSinceArrivedAtWaypoint += Time.deltaTime;
         }
 
         private void AttackBehaviour()
         {
+            timeSinceLastSawPlayer = 0f;
             fighter.Attack(player);
         }
 
@@ -79,11 +88,19 @@ namespace RPG.Control
             {
                 if (AtWaypoint())
                 {
+                    timeSinceArrivedAtWaypoint = 0;
                     CycleWaypoint();
                 }
                 nextPosition = GetCurrentWaypoint();
+
+                if (timeSinceArrivedAtWaypoint > waypointTimer)
+                {
+                    mover.StartMoving(nextPosition);
+                }
             }
-            mover.StartMoving(nextPosition);
+
+
+            //mover.StartMoving(nextPosition);
 
             //if (Vector3.Distance(transform.position, guardPosition) < 0.2f)
             //{
