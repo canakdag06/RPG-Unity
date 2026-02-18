@@ -1,6 +1,7 @@
 using RPG.Combat;
 using RPG.Core;
 using RPG.Movement;
+using System;
 using UnityEngine;
 
 
@@ -10,6 +11,7 @@ namespace RPG.Control
     {
         [SerializeField] float chaseDistance = 5f;
         [SerializeField] float suspicionTimer = 5f;
+        [SerializeField] PatrolPath patrolPath;
 
         private Fighter fighter;
         private Mover mover;
@@ -17,6 +19,7 @@ namespace RPG.Control
         private GameObject player;
 
         private Vector3 guardPosition;
+        private int currentWaypointIndex = 0;
         private Quaternion guardRotation;
         private float timeSinceLastSawPlayer = Mathf.Infinity;
 
@@ -53,7 +56,7 @@ namespace RPG.Control
             }
             else
             {
-                GuardBehaviour();
+                PatrolBehaviour();
             }
             timeSinceLastSawPlayer += Time.deltaTime;
         }
@@ -68,18 +71,43 @@ namespace RPG.Control
             GetComponent<ActionScheduler>().CancelCurrentAction();
         }
 
-        private void GuardBehaviour()
+        private void PatrolBehaviour()
         {
-            mover.StartMoving(guardPosition);
+            Vector3 nextPosition = guardPosition;
 
-            if (Vector3.Distance(transform.position, guardPosition) < 0.2f)
+            if (patrolPath != null)
             {
-                transform.rotation = Quaternion.RotateTowards(
-                    transform.rotation,
-                    guardRotation,
-                    360f * Time.deltaTime
-                );
+                if (AtWaypoint())
+                {
+                    CycleWaypoint();
+                }
+                nextPosition = GetCurrentWaypoint();
             }
+            mover.StartMoving(nextPosition);
+
+            //if (Vector3.Distance(transform.position, guardPosition) < 0.2f)
+            //{
+            //    transform.rotation = Quaternion.RotateTowards(
+            //        transform.rotation,
+            //        guardRotation,
+            //        360f * Time.deltaTime
+            //    );
+            //}
+        }
+
+        private Vector3 GetCurrentWaypoint()
+        {
+            return patrolPath.GetWayPoint(currentWaypointIndex);
+        }
+
+        private void CycleWaypoint()
+        {
+            currentWaypointIndex = patrolPath.GetNextIndex(currentWaypointIndex);
+        }
+
+        private bool AtWaypoint()
+        {
+            return Vector3.Distance(transform.position, GetCurrentWaypoint()) < 1f;
         }
 
         private bool IsInAttackRange()
