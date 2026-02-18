@@ -18,7 +18,7 @@ namespace RPG.Combat
         private const string attackTrigger = "attack";
         private const string stopAttackTrigger = "stopAttack";
 
-        private float timeSinceLastAttack = 0f;
+        private float timeSinceLastAttack = Mathf.Infinity;
 
         private void Awake()
         {
