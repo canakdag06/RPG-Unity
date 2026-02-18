@@ -1,3 +1,4 @@
+using RPG.Combat;
 using UnityEngine;
 
 
@@ -6,19 +7,38 @@ namespace RPG.Control
     public class AIController : MonoBehaviour
     {
         [SerializeField] float chaseDistance = 5f;
-
+        private Fighter fighter;
+        private GameObject player;
 
         private const string playerTag = "Player";
 
+        private void Awake()
+        {
+            fighter = GetComponent<Fighter>();
+        }
+
+        private void Start()
+        {
+            player = GameObject.FindWithTag(playerTag);
+        }
+
+
         private void Update()
         {
-            GameObject player = GameObject.FindWithTag(playerTag);
-            float distance = Vector3.Distance(player.transform.position, transform.position);
-
-            if(distance < chaseDistance)
+            if (IsInAttackRange() && fighter.CanAttack(player))
             {
-                Debug.Log("GET HIM!",this);
+                fighter.Attack(player);
             }
+            else
+            {
+                fighter.Cancel();
+            }
+        }
+
+        private bool IsInAttackRange()
+        {
+            float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
+            return distanceToPlayer < chaseDistance;
         }
     }
 }
