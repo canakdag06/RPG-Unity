@@ -17,7 +17,7 @@ namespace RPG.Control
 
             if (InteractWithCombat()) return;
             if (SetDestination()) return;
-            Debug.Log("NOTHING");
+            //Debug.Log("NOTHING");
         }
 
         private bool SetDestination()
