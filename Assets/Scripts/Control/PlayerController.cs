@@ -28,7 +28,7 @@ namespace RPG.Control
             {
                 if (Mouse.current.rightButton.isPressed)
                 {
-                    mover.StartMoving(hit.point);
+                    mover.StartMoving(hit.point, 1f);
                 }
                 return true;
             }

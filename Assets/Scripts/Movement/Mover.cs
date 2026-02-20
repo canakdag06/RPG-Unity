@@ -10,6 +10,7 @@ namespace RPG.Movement
 
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private Animator animator;
+        [SerializeField] float speed;
 
 
         private const string ForwardSpeed = "forwardSpeed";
@@ -33,15 +34,16 @@ namespace RPG.Movement
             UpdateAnimator();
         }
 
-        public void StartMoving(Vector3 destination)
+        public void StartMoving(Vector3 destination, float multiplier)
         {
             GetComponent<ActionScheduler>().StartAction(this);
-            MoveTo(destination);
+            MoveTo(destination, multiplier);
         }
 
-        public void MoveTo(Vector3 position)
+        public void MoveTo(Vector3 position, float multiplier)
         {
             agent.destination = position;
+            agent.speed = speed * multiplier;
             agent.isStopped = false;
 
         }

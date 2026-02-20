@@ -56,9 +56,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4361488922919772450, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
-      propertyPath: m_Speed
-      value: 3
+    - target: {fileID: 8566248295670998011, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      propertyPath: speed
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -137,6 +137,7 @@ MonoBehaviour:
   chaseDistance: 5
   suspicionTimer: 5
   waypointTimer: 5
+  patrolSpeedMultiplier: 0.5
   patrolPath: {fileID: 0}
 --- !u!1001 &4001595311707936821
 PrefabInstance:

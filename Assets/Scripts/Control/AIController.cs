@@ -12,6 +12,7 @@ namespace RPG.Control
         [SerializeField] float chaseDistance = 5f;
         [SerializeField] float suspicionTimer = 5f;
         [SerializeField] float waypointTimer = 5f;
+        [SerializeField] float patrolSpeedMultiplier = 0.5f;
         [SerializeField] PatrolPath patrolPath;
 
         private Fighter fighter;
@@ -95,7 +96,7 @@ namespace RPG.Control
 
                 if (timeSinceArrivedAtWaypoint > waypointTimer)
                 {
-                    mover.StartMoving(nextPosition);
+                    mover.StartMoving(nextPosition, patrolSpeedMultiplier);
                 }
             }
 
