@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1874938760815827230, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      propertyPath: attackCooldown
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       propertyPath: m_Name
       value: Enemy
@@ -131,6 +135,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Control.AIController
   chaseDistance: 5
+  suspicionTimer: 5
+  waypointTimer: 5
+  patrolPath: {fileID: 0}
 --- !u!1001 &4001595311707936821
 PrefabInstance:
   m_ObjectHideFlags: 0
