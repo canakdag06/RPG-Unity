@@ -68,11 +68,8 @@ PrefabInstance:
       addedObject: {fileID: 4001595311708309325}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
-      insertIndex: -1
+      insertIndex: 7
       addedObject: {fileID: 2517537406706193208}
-    - targetCorrespondingSourceObject: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4421989700063946913}
     - targetCorrespondingSourceObject: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8154034267418189198}
@@ -99,29 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9732c77289ebcf4dafd8169e4ae9e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.CombatTarget
---- !u!136 &4421989700063946913
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3362769395052839997}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!114 &8154034267418189198
 MonoBehaviour:
   m_ObjectHideFlags: 0
