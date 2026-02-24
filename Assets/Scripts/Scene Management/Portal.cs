@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 namespace RPG.SceneManagement
@@ -7,7 +8,10 @@ namespace RPG.SceneManagement
     {
         private void OnTriggerEnter(Collider other)
         {
-
+            if(other.tag == "Player")
+            {
+                SceneManager.LoadScene("Sandbox 1");
+            }
         }
     }
 }

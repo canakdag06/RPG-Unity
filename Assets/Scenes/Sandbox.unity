@@ -8004,18 +8004,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2197506284436739061, guid: 3cf523bb0eba25e4f8f7214c61de72a1, type: 3}
-      propertyPath: m_Size.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197506284436739061, guid: 3cf523bb0eba25e4f8f7214c61de72a1, type: 3}
-      propertyPath: m_Size.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2197506284436739061, guid: 3cf523bb0eba25e4f8f7214c61de72a1, type: 3}
-      propertyPath: m_Size.z
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 7386161888776108079, guid: 3cf523bb0eba25e4f8f7214c61de72a1, type: 3}
       propertyPath: m_Name
       value: Portal
