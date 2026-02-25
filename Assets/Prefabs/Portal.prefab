@@ -97,6 +97,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RPG.SceneManagement.Portal
   sceneIndexToLoad: 0
   spawnPoint: {fileID: 1740418422051551549}
+  destination: 0
+  fadeOutTime: 0.5
+  fadeInTime: 1
+  fadeWaitTime: 0.5
 --- !u!1 &7391220996950141878
 GameObject:
   m_ObjectHideFlags: 0

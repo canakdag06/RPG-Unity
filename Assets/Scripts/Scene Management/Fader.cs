@@ -11,8 +11,6 @@ namespace RPG.SceneManagement
         private void Awake()
         {
             canvasGroup = GetComponent<CanvasGroup>();
-
-            StartCoroutine(FadeOut(2f));
         }
 
         public IEnumerator FadeOutIn()
