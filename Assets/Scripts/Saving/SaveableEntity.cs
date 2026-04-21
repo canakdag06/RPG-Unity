@@ -25,7 +25,7 @@ namespace RPG.Saving
                 sObject.ApplyModifiedProperties();
             }
 
-            print("Editing");
+            //print("Editing");
         }
 #endif
         public string GetID()
