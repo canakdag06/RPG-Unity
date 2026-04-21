@@ -11,13 +11,23 @@ namespace RPG.Saving
         {
             if (Keyboard.current.sKey.wasPressedThisFrame)
             {
-                GetComponent<SavingSystem>().Save(defaultSaveFile);
+                Save();
             }
 
             if (Keyboard.current.lKey.wasPressedThisFrame)
             {
-                GetComponent<SavingSystem>().Load(defaultSaveFile);
+                Load();
             }
+        }
+
+        public void Save()
+        {
+            GetComponent<SavingSystem>().Save(defaultSaveFile);
+        }
+
+        public void Load()
+        {
+            GetComponent<SavingSystem>().Load(defaultSaveFile);
         }
     }
 }
