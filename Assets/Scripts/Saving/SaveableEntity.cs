@@ -10,6 +10,7 @@ namespace RPG.Saving
     public class SaveableEntity : MonoBehaviour
     {
         [SerializeField] string ID = "";
+        static Dictionary<string, SaveableEntity> globalLookup = new Dictionary<string, SaveableEntity>();
 
 #if UNITY_EDITOR
         private void Update()
@@ -20,11 +21,13 @@ namespace RPG.Saving
             SerializedObject sObject = new SerializedObject(this);
             SerializedProperty property = sObject.FindProperty("ID");
 
-            if (property.stringValue == "")
+            if (string.IsNullOrEmpty(property.stringValue) || !IsUnique(property.stringValue))
             {
                 property.stringValue = System.Guid.NewGuid().ToString();
                 sObject.ApplyModifiedProperties();
             }
+
+            globalLookup[property.stringValue] = this;
         }
 #endif
         public string GetID()
@@ -35,7 +38,7 @@ namespace RPG.Saving
         public object CaptureState()
         {
             Dictionary<string, object> state = new Dictionary<string, object>();
-            foreach(ISaveable saveable in GetComponents<ISaveable>())
+            foreach (ISaveable saveable in GetComponents<ISaveable>())
             {
                 state[saveable.GetType().ToString()] = saveable.CaptureState();
             }
@@ -44,7 +47,7 @@ namespace RPG.Saving
 
         public void RestoreState(object state)
         {
-            Dictionary<string, object> stateDict = (Dictionary<string, object>) state;
+            Dictionary<string, object> stateDict = (Dictionary<string, object>)state;
             foreach (ISaveable saveable in GetComponents<ISaveable>())
             {
                 string typeString = saveable.GetType().ToString();
@@ -53,6 +56,33 @@ namespace RPG.Saving
                     saveable.RestoreState(stateDict[typeString]);
                 }
             }
+        }
+
+        private bool IsUnique(string value)
+        {
+            if (!globalLookup.ContainsKey(value))
+            {
+                return true;
+            }
+
+            if (globalLookup[value] == this)
+            {
+                return true;
+            }
+
+            if (globalLookup[value] == null)
+            {
+                globalLookup.Remove(value);
+                return true;
+            }
+
+            if (globalLookup[value].GetID() != value)
+            {
+                globalLookup.Remove(value);
+                return true;
+            }
+
+            return false;
         }
     }
 }
