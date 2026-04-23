@@ -76,6 +76,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 179617562051927765, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      propertyPath: ID
+      value: player
+      objectReference: {fileID: 0}
     - target: {fileID: 1874938760815827230, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       propertyPath: weaponDamage
       value: 15
