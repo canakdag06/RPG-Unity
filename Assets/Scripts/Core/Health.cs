@@ -49,6 +49,11 @@ namespace RPG.Core
         {
             health/*.value*/ = state.ToObject<float>();
             //UpdateState();
+
+            if (health <= 0f)
+            {
+                Die();
+            }
         }
     }
 }
