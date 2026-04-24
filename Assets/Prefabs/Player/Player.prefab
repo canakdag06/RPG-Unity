@@ -78,7 +78,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 179617562051927765, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       propertyPath: ID
-      value: player
+      value: 97cef117-5856-496c-ac7e-c4106ccd2985
       objectReference: {fileID: 0}
     - target: {fileID: 1874938760815827230, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       propertyPath: weaponDamage
@@ -139,6 +139,10 @@ PrefabInstance:
     - target: {fileID: 8566248295670998011, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       propertyPath: speed
       value: 5.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 8660841697619340191, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      propertyPath: ID
+      value: player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

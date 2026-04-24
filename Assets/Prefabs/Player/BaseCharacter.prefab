@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1874938760815827230}
   - component: {fileID: 1065251960489458018}
   - component: {fileID: 710034206452292240}
-  - component: {fileID: 179617562051927765}
+  - component: {fileID: 8660841697619340191}
   m_Layer: 0
   m_Name: BaseCharacter
   m_TagString: Untagged
@@ -162,7 +162,7 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &179617562051927765
+--- !u!114 &8660841697619340191
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,6 +171,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1886560329797105164}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df12dd645e7297f47b05e29b0935d6d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 520bf993267775c48a4422f0970e6748, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RPG.Saving.SaveableEntity
+  m_EditorClassIdentifier: Assembly-CSharp::RPG.Saving.JsonSaveableEntity
+  ID: e63fa640-bc99-47a5-bc55-431d915d3764
