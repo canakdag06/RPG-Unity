@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace RPG.Core
 {
-    public class Health : MonoBehaviour, IJsonSaveable, ISaveable
+    public class Health : MonoBehaviour, IJsonSaveable
     {
         [SerializeField] private float health = 100f;
 
@@ -39,21 +39,6 @@ namespace RPG.Core
 
             OnDie.Invoke();
         }
-
-        //public object CaptureState()
-        //{
-        //    return health;
-        //}
-
-        //public void RestoreState(object state)
-        //{
-        //    health = (float)state;
-
-        //    if (health <= 0f)
-        //    {
-        //        Die();
-        //    }
-        //}
 
         public JToken CaptureAsJToken()
         {
