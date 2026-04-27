@@ -12,6 +12,7 @@ namespace RPG.Combat
         [SerializeField] float weaponDamage = 5f;
         [SerializeField] GameObject weaponPrefab = null;
         [SerializeField] Transform handTransform = null;
+        [SerializeField] AnimatorOverrideController weaponOverride = null;
 
         private Health target;
         private Mover mover;
@@ -54,7 +55,6 @@ namespace RPG.Combat
         {
             GetComponent<ActionScheduler>().StartAction(this);
             this.target = target.GetComponent<Health>();
-
         }
 
         public void Cancel()
@@ -86,6 +86,7 @@ namespace RPG.Combat
             if (weaponPrefab != null && handTransform != null)
             {
                 Instantiate(weaponPrefab, handTransform);
+                animator.runtimeAnimatorController = weaponOverride;
             }
         }
 
