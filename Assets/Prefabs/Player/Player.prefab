@@ -86,6 +86,10 @@ PrefabInstance:
       value: 5028f0ac-be79-497e-a05a-d348bb3513a4
       objectReference: {fileID: 0}
     - target: {fileID: 1874938760815827230, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 11400000, guid: cd2dc1c306716384f90d35a4cef4bada, type: 2}
+    - target: {fileID: 1874938760815827230, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       propertyPath: weaponDamage
       value: 15
       objectReference: {fileID: 0}
