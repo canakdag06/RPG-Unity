@@ -28,6 +28,11 @@ namespace RPG.Combat
             animator = GetComponent<Animator>();
         }
 
+        private void Start()
+        {
+            SpawnWeapon();
+        }
+
         void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
@@ -74,6 +79,14 @@ namespace RPG.Combat
             if (target == null) { return; }
 
             target.TakeDamage(weaponDamage);
+        }
+
+        private void SpawnWeapon()
+        {
+            if (weaponPrefab != null && handTransform != null)
+            {
+                Instantiate(weaponPrefab, handTransform);
+            }
         }
 
         private bool IsTargetInRange()
