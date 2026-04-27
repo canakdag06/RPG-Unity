@@ -9,11 +9,12 @@ namespace RPG.Combat
     {
         [SerializeField] float attackCooldown = 1.0f;
         [SerializeField] Transform handTransform = null;
-        [SerializeField] Weapon weapon = null;
+        [SerializeField] Weapon defaultWeapon = null;
 
         private Health target;
         private Mover mover;
         private Animator animator;
+        private Weapon currentWeapon = null;
 
         private const string attackTrigger = "attack";
         private const string stopAttackTrigger = "stopAttack";
@@ -28,7 +29,7 @@ namespace RPG.Combat
 
         private void Start()
         {
-            SpawnWeapon();
+            EquipWeapon(defaultWeapon);
         }
 
         void Update()
@@ -69,26 +70,26 @@ namespace RPG.Combat
             Health targetToTest = combatTarget.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDead;
         }
+        public void EquipWeapon(Weapon weapon)
+        {
+            currentWeapon = weapon;
+            currentWeapon.Spawn(handTransform, animator);
+        }
 
         // Animation Event
         void Hit()
         {
             if (target == null) { return; }
 
-            target.TakeDamage(weapon.Damage);
+            target.TakeDamage(currentWeapon.Damage);
         }
 
-        private void SpawnWeapon()
-        {
-            if(weapon == null) { return; }
-            weapon.Spawn(handTransform, animator);
-        }
 
         private bool IsTargetInRange()
         {
             float distance = (target.transform.position - transform.position).sqrMagnitude;
 
-            if (distance < weapon.Range)
+            if (distance < currentWeapon.Range)
                 return true;
             else
                 return false;
