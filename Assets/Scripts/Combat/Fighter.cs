@@ -7,9 +7,7 @@ namespace RPG.Combat
 {
     public class Fighter : MonoBehaviour, IAction
     {
-        [SerializeField] float weaponRange = 2.0f;
         [SerializeField] float attackCooldown = 1.0f;
-        [SerializeField] float weaponDamage = 5f;
         [SerializeField] Transform handTransform = null;
         [SerializeField] Weapon weapon = null;
 
@@ -77,7 +75,7 @@ namespace RPG.Combat
         {
             if (target == null) { return; }
 
-            target.TakeDamage(weaponDamage);
+            target.TakeDamage(weapon.Damage);
         }
 
         private void SpawnWeapon()
@@ -90,7 +88,7 @@ namespace RPG.Combat
         {
             float distance = (target.transform.position - transform.position).sqrMagnitude;
 
-            if (distance < weaponRange * weaponRange)
+            if (distance < weapon.Range)
                 return true;
             else
                 return false;
