@@ -8,7 +8,8 @@ namespace RPG.Combat
     public class Fighter : MonoBehaviour, IAction
     {
         [SerializeField] float attackCooldown = 1.0f;
-        [SerializeField] Transform handTransform = null;
+        [SerializeField] Transform rightHand = null;
+        [SerializeField] Transform leftHand = null;
         [SerializeField] Weapon defaultWeapon = null;
 
         private Health target;
@@ -73,7 +74,7 @@ namespace RPG.Combat
         public void EquipWeapon(Weapon weapon)
         {
             currentWeapon = weapon;
-            currentWeapon.Spawn(handTransform, animator);
+            currentWeapon.Spawn(rightHand, leftHand, animator);
         }
 
         // Animation Event
