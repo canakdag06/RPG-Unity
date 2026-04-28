@@ -90,7 +90,7 @@ namespace RPG.Combat
         {
             float distance = (target.transform.position - transform.position).sqrMagnitude;
 
-            if (distance < currentWeapon.Range)
+            if (distance < currentWeapon.Range * currentWeapon.Range)
                 return true;
             else
                 return false;
