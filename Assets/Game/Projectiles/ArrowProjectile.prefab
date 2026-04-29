@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6845423049226337558}
+  - component: {fileID: 5753082571448359969}
   m_Layer: 0
   m_Name: ArrowProjectile
   m_TagString: Untagged
@@ -32,6 +33,20 @@ Transform:
   - {fileID: 2868685897310018441}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5753082571448359969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8403195291350998357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b7815a15a1a07418742b019da03529, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Projectile
+  target: {fileID: 0}
+  speed: 1
 --- !u!1001 &2873153790987207485
 PrefabInstance:
   m_ObjectHideFlags: 0
