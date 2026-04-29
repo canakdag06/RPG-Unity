@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8566248295670998011}
   - component: {fileID: 1874938760815827230}
   - component: {fileID: 1065251960489458018}
+  - component: {fileID: 312105676602178287}
   - component: {fileID: 710034206452292240}
   - component: {fileID: 179617562051927765}
   m_Layer: 0
@@ -124,9 +125,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b5849d19b5288c4f8357f927248bafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Fighter
-  weaponRange: 2
   attackCooldown: 2
-  weaponDamage: 5
+  rightHand: {fileID: 0}
+  leftHand: {fileID: 0}
+  defaultWeapon: {fileID: 0}
 --- !u!114 &1065251960489458018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,6 +141,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07e55cee0609fb145ae9f14c38a71a60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Core.ActionScheduler
+--- !u!54 &312105676602178287
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886560329797105164}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 1
 --- !u!136 &710034206452292240
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -174,3 +203,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df12dd645e7297f47b05e29b0935d6d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Saving.SaveableEntity
+  ID: 
