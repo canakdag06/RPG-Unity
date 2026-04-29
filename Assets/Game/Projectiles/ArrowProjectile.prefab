@@ -45,8 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b7815a15a1a07418742b019da03529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Projectile
-  target: {fileID: 0}
-  speed: 1
+  speed: 20
 --- !u!1001 &2873153790987207485
 PrefabInstance:
   m_ObjectHideFlags: 0
