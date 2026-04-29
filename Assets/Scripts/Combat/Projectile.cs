@@ -17,14 +17,14 @@ namespace RPG.Combat
 
         private Vector3 GetAimLocation()
         {
-            CapsuleCollider targetCapsule = target.GetComponent<CapsuleCollider>();
-            if (targetCapsule == null)
+            Collider targetCollider = target.GetComponent<Collider>();
+            if (targetCollider == null)
             {
                 Debug.LogError("Target does not have a Collider.");
                 return target.position;
             }
 
-            return target.position + Vector3.up * targetCapsule.height / 1.5f;
+            return targetCollider.bounds.center;
         }
     }
 
