@@ -56,7 +56,7 @@ namespace RPG.Combat
 
             if (hitEffectPrefab != null)
             {
-                Instantiate(hitEffectPrefab, GetAimLocation(), Quaternion.identity);
+                Instantiate(hitEffectPrefab, GetAimLocation(), transform.rotation);
             }
 
             Destroy(gameObject);
