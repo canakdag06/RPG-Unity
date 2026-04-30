@@ -207,7 +207,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2b7815a15a1a07418742b019da03529, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Projectile
-  speed: 20
+  speed: 30
+  isHoming: 0
 --- !u!65 &5608797333313049750
 BoxCollider:
   m_ObjectHideFlags: 0
