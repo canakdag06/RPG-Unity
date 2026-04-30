@@ -7,6 +7,8 @@ namespace RPG.Combat
     {
         [SerializeField] private float speed = 1.0f;
         [SerializeField] private bool isHoming = false;
+        [SerializeField] private GameObject hitEffectPrefab = null;
+
         private Health target;
         private float damage = 0f;
 
@@ -19,7 +21,7 @@ namespace RPG.Combat
         private void Update()
         {
             if (target == null) return;
-            if(isHoming && !target.IsDead)
+            if (isHoming && !target.IsDead)
             {
                 transform.LookAt(GetAimLocation());
             }
@@ -48,9 +50,15 @@ namespace RPG.Combat
         private void OnTriggerEnter(Collider other)
         {
             if (other.GetComponent<Health>() != target) return;
-            if(target.IsDead) return;
+            if (target.IsDead) return;
 
             target.TakeDamage(damage);
+
+            if (hitEffectPrefab != null)
+            {
+                Instantiate(hitEffectPrefab, GetAimLocation(), Quaternion.identity);
+            }
+
             Destroy(gameObject);
         }
     }
