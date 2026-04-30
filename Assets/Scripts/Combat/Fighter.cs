@@ -10,12 +10,13 @@ namespace RPG.Combat
         [SerializeField] float attackCooldown = 1.0f;
         [SerializeField] Transform rightHand = null;
         [SerializeField] Transform leftHand = null;
-        [SerializeField] Weapon defaultWeapon = null;
+        [SerializeField] Weapon defaultWeaponType = null;
 
         private Health target;
         private Mover mover;
         private Animator animator;
-        private Weapon currentWeapon = null;
+        private Weapon currentWeaponType = null;
+        private GameObject currentWeapon = null;
 
         private const string attackTrigger = "attack";
         private const string stopAttackTrigger = "stopAttack";
@@ -30,7 +31,7 @@ namespace RPG.Combat
 
         private void Start()
         {
-            EquipWeapon(defaultWeapon);
+            EquipWeapon(defaultWeaponType);
         }
 
         void Update()
@@ -73,8 +74,13 @@ namespace RPG.Combat
         }
         public void EquipWeapon(Weapon weapon)
         {
-            currentWeapon = weapon;
-            currentWeapon.Spawn(rightHand, leftHand, animator);
+            if(currentWeapon != null)
+            {
+                Destroy(currentWeapon);
+            }
+
+            currentWeaponType = weapon;
+            currentWeapon = currentWeaponType.Spawn(rightHand, leftHand, animator);
         }
 
         // Animation Event
@@ -82,13 +88,13 @@ namespace RPG.Combat
         {
             if (target == null) { return; }
 
-            if (currentWeapon.HasProjectile())
+            if (currentWeaponType.HasProjectile())
             {
-                currentWeapon.LaunchProjectile(rightHand, leftHand, target);
+                currentWeaponType.LaunchProjectile(rightHand, leftHand, target);
             }
             else
             {
-                target.TakeDamage(currentWeapon.Damage);
+                target.TakeDamage(currentWeaponType.Damage);
             }
         }
 
@@ -102,7 +108,7 @@ namespace RPG.Combat
         {
             float distance = (target.transform.position - transform.position).sqrMagnitude;
 
-            if (distance < currentWeapon.Range * currentWeapon.Range)
+            if (distance < currentWeaponType.Range * currentWeaponType.Range)
                 return true;
             else
                 return false;

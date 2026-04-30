@@ -18,13 +18,14 @@ namespace RPG.Combat
         public float Damage { get { return damage; } }
         public float Range { get { return range; } }
 
-        public void Spawn(Transform rightHand, Transform leftHand, Animator animator)
+        public GameObject Spawn(Transform rightHand, Transform leftHand, Animator animator)
         {
             Transform handTransform = GetTransform(rightHand, leftHand);
+            GameObject weaponInstance = null;
 
             if (weaponPrefab != null)
             {
-                Instantiate(weaponPrefab, handTransform);
+                weaponInstance = Instantiate(weaponPrefab, handTransform);
             }
             else
             {
@@ -39,6 +40,8 @@ namespace RPG.Combat
             {
                 Debug.LogWarning("No animator override found for " + name);
             }
+
+            return weaponInstance;
         }
 
         private Transform GetTransform(Transform rightHand, Transform leftHand)

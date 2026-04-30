@@ -126,6 +126,10 @@ PrefabInstance:
       propertyPath: weaponOverride
       value: 
       objectReference: {fileID: 22100000, guid: e5e4a26c5dd0e494ea825f7dd6d48f72, type: 2}
+    - target: {fileID: 1874938760815827230, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      propertyPath: defaultWeaponType
+      value: 
+      objectReference: {fileID: 11400000, guid: 34670a83821692e49be6483baad89778, type: 2}
     - target: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       propertyPath: m_Name
       value: Player
