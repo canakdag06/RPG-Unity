@@ -9,6 +9,8 @@ namespace RPG.Combat
         [SerializeField] private bool isHoming = false;
         [SerializeField] private float maxLifetime = 5f;
         [SerializeField] private GameObject hitEffectPrefab = null;
+        [SerializeField] private GameObject[] destroyOnHit = null;
+        [SerializeField] private float lifeAfterImpact;
 
         private Health target;
         private float damage = 0f;
@@ -56,13 +58,19 @@ namespace RPG.Combat
             if (target.IsDead) return;
 
             target.TakeDamage(damage);
+            speed = 0f;
 
             if (hitEffectPrefab != null)
             {
                 Instantiate(hitEffectPrefab, GetAimLocation(), transform.rotation);
             }
 
-            Destroy(gameObject);
+            foreach (GameObject toDestroy in destroyOnHit)
+            {
+                Destroy(toDestroy);
+            }
+
+            Destroy(gameObject, lifeAfterImpact);
         }
     }
 
