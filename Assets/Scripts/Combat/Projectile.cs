@@ -7,6 +7,7 @@ namespace RPG.Combat
     {
         [SerializeField] private float speed = 1.0f;
         [SerializeField] private bool isHoming = false;
+        [SerializeField] private float maxLifetime = 5f;
         [SerializeField] private GameObject hitEffectPrefab = null;
 
         private Health target;
@@ -33,6 +34,8 @@ namespace RPG.Combat
         {
             this.target = target;
             this.damage = damage;
+
+            Destroy(gameObject, maxLifetime);
         }
 
         private Vector3 GetAimLocation()
