@@ -11,6 +11,7 @@ namespace RPG.Combat
         [SerializeField] Transform rightHand = null;
         [SerializeField] Transform leftHand = null;
         [SerializeField] Weapon defaultWeaponType = null;
+        [SerializeField] string defaultWeaponName = "Unarmed";
 
         private Health target;
         private Mover mover;
@@ -31,7 +32,9 @@ namespace RPG.Combat
 
         private void Start()
         {
-            EquipWeapon(defaultWeaponType);
+            //EquipWeapon(defaultWeaponType);
+            Weapon weapon = Resources.Load<Weapon>(defaultWeaponName);
+            EquipWeapon(weapon);
         }
 
         void Update()
