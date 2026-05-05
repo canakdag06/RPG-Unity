@@ -46,7 +46,7 @@ namespace RPG.SceneManagement
             yield return SceneManager.LoadSceneAsync(sceneIndexToLoad);
 
             wrapper.Load();
-
+            yield return new WaitForEndOfFrame();
             Portal otherPortal = FindOtherPortal();
             UpdatePlayer(otherPortal);
 
