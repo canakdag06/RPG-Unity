@@ -4942,7 +4942,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Projectile
   speed: 10
   isHoming: 1
+  maxLifetime: 5
   hitEffectPrefab: {fileID: 2302457091093092515, guid: 69d1b1037536b504884c93bb73d662db, type: 3}
+  destroyOnHit:
+  - {fileID: 1539549561248037935}
+  lifeAfterImpact: 0.2
 --- !u!65 &5608797333313049750
 BoxCollider:
   m_ObjectHideFlags: 0

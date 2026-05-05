@@ -209,6 +209,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Projectile
   speed: 30
   isHoming: 0
+  maxLifetime: 5
+  hitEffectPrefab: {fileID: 1020445539511186780, guid: 6bf8056eb19f84a4e85a61e8ec7ff697, type: 3}
+  destroyOnHit:
+  - {fileID: 2871778588038710467}
+  lifeAfterImpact: 0
 --- !u!65 &5608797333313049750
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -290,5 +295,10 @@ PrefabInstance:
 --- !u!4 &2868685897310018441 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4750687242688692, guid: c7f49c6920d49ba468b083941d79f2c0, type: 3}
+  m_PrefabInstance: {fileID: 2873153790987207485}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2871778588038710467 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1659504181823486, guid: c7f49c6920d49ba468b083941d79f2c0, type: 3}
   m_PrefabInstance: {fileID: 2873153790987207485}
   m_PrefabAsset: {fileID: 0}
