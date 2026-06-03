@@ -1,9 +1,11 @@
+using RPG.Core;
 using RPG.Saving;
+using RPG.Stats;
 using System;
 using UnityEngine;
 
 
-namespace RPG.Core
+namespace RPG.Attributes
 {
     public class Health : MonoBehaviour, ISaveable
     {
@@ -17,6 +19,11 @@ namespace RPG.Core
         private const string dieTrigger = "die";
 
         private bool isDead = false;
+
+        private void Start()
+        {
+            health = GetComponent<BaseStats>().GetHealth();
+        }
 
         public void TakeDamage(float damage)
         {
