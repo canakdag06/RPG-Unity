@@ -25,7 +25,7 @@ namespace RPG.Attributes
 
         private void UpdateHealthDisplay(float percentage)
         {
-            healthText.text = $"% {percentage}";
+            healthText.text = $"% {percentage:0}";
         }
     }
 }
