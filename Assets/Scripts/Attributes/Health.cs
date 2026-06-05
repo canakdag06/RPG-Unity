@@ -25,7 +25,7 @@ namespace RPG.Attributes
             health = GetComponent<BaseStats>().GetHealth();
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(GameObject attacker, float damage)
         {
             health = Mathf.Max(health - damage, 0f);
             OnHealthChanged?.Invoke(GetHealthPercentage());

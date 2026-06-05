@@ -36,11 +36,6 @@ namespace RPG.Combat
             }
         }
 
-        private void Start()
-        {
-
-        }
-
         void Update()
         {
             timeSinceLastAttack += Time.deltaTime;
@@ -97,11 +92,11 @@ namespace RPG.Combat
 
             if (currentWeaponType.HasProjectile())
             {
-                currentWeaponType.LaunchProjectile(rightHand, leftHand, target);
+                currentWeaponType.LaunchProjectile(rightHand, leftHand, target, gameObject);
             }
             else
             {
-                target.TakeDamage(currentWeaponType.Damage);
+                target.TakeDamage(gameObject, currentWeaponType.Damage);
             }
         }
 
