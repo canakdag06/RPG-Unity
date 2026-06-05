@@ -14,30 +14,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Progression
   characterClasses:
   - characterClass: 0
-    levels:
-    - health: 50
-      expReward: 0
-    - health: 60
-      expReward: 0
-    - health: 70
-      expReward: 0
-    - health: 80
-      expReward: 0
+    stats:
+    - stat: 0
+      levels:
+      - 50
+      - 60
+      - 70
+      - 80
+    - stat: 1
+      levels:
+      - 0
   - characterClass: 1
-    levels:
-    - health: 50
-      expReward: 5
-    - health: 60
-      expReward: 10
-    - health: 70
-      expReward: 15
+    stats:
+    - stat: 0
+      levels:
+      - 50
+      - 60
+      - 70
+    - stat: 1
+      levels:
+      - 5
+      - 10
+      - 15
   - characterClass: 2
-    levels: []
+    stats:
+    - stat: 0
+      levels:
+      - 0
+      - 0
+      - 0
+    - stat: 1
+      levels:
+      - 0
+      - 0
+      - 0
   - characterClass: 3
-    levels:
-    - health: 30
-      expReward: 7
-    - health: 40
-      expReward: 12
-    - health: 50
-      expReward: 17
+    stats:
+    - stat: 0
+      levels:
+      - 30
+      - 40
+      - 50
+    - stat: 1
+      levels:
+      - 7
+      - 12
+      - 17
