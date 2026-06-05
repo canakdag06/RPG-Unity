@@ -12,9 +12,9 @@ namespace RPG.Attributes
         [SerializeField] private float health = 100f;
 
         public event Action OnDie;
+        public event Action<float> OnHealthChanged;
 
         public bool IsDead => isDead;
-
 
         private const string dieTrigger = "die";
 
@@ -28,11 +28,17 @@ namespace RPG.Attributes
         public void TakeDamage(float damage)
         {
             health = Mathf.Max(health - damage, 0f);
+            OnHealthChanged?.Invoke(GetHealthPercentage());
 
             if (health == 0f)
             {
                 Die();
             }
+        }
+
+        public float GetHealthPercentage()
+        {
+            return (health / GetComponent<BaseStats>().GetHealth()) * 100;
         }
 
         private void Die()
