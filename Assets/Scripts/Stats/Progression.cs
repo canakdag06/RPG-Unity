@@ -1,4 +1,5 @@
 using RPG.Stats;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace RPG.Stats
@@ -7,6 +8,8 @@ namespace RPG.Stats
     public class Progression : ScriptableObject
     {
         [SerializeField] ProgressionCharacterClass[] characterClasses = null;
+
+        Dictionary<CharacterClass, Dictionary<Stat, float[]>> lookupTable = null;
 
         [System.Serializable]
         public class ProgressionCharacterClass
@@ -24,31 +27,36 @@ namespace RPG.Stats
 
         public float GetStat(CharacterClass characterClass, Stat stat, int level)
         {
+            BuildLookup();
+
+            float[] levels = lookupTable[characterClass][stat];
+
+            if (levels.Length < level)
+            {
+                return 0;
+            }
+
+            return levels[level - 1];
+        }
+
+        private void BuildLookup()
+        {
+            if (lookupTable != null) return;
+
+            lookupTable = new Dictionary<CharacterClass, Dictionary<Stat, float[]>>();
+
             foreach (ProgressionCharacterClass progressionClass in characterClasses)
             {
-                if (progressionClass.characterClass != characterClass) continue;
+                var statLookupTable = new Dictionary<Stat, float[]>();
 
                 foreach (ProgressionStat progressionStat in progressionClass.stats)
                 {
-                    if (progressionStat.stat == stat)
-                    {
-                        return progressionStat.levels[level - 1];
-                    }
+                    statLookupTable[progressionStat.stat] = progressionStat.levels;
                 }
-            }
-            return 0;
-        }
 
-        public float GetEXPReward(CharacterClass characterClass, int level)
-        {
-            foreach (ProgressionCharacterClass progressionClass in characterClasses)
-            {
-                if (progressionClass.characterClass == characterClass)
-                {
-                    //return progressionClass.levels[level - 1].expReward;
-                }
+                lookupTable[progressionClass.characterClass] = statLookupTable;
             }
-            return 0;
+
         }
     }
 }
