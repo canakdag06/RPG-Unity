@@ -26,7 +26,7 @@ namespace RPG.Stats
         {
             foreach (ProgressionCharacterClass progressionClass in characterClasses)
             {
-                if (progressionClass.characterClass == characterClass) continue;
+                if (progressionClass.characterClass != characterClass) continue;
 
                 foreach (ProgressionStat progressionStat in progressionClass.stats)
                 {

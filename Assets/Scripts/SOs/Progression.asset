@@ -22,8 +22,7 @@ MonoBehaviour:
       - 70
       - 80
     - stat: 1
-      levels:
-      - 0
+      levels: []
   - characterClass: 1
     stats:
     - stat: 0
