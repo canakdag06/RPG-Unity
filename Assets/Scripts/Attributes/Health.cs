@@ -33,6 +33,7 @@ namespace RPG.Attributes
             if (health == 0f)
             {
                 Die();
+                AwardEXP(attacker);
             }
         }
 
@@ -50,6 +51,13 @@ namespace RPG.Attributes
             GetComponent<ActionScheduler>().CancelCurrentAction();
 
             OnDie.Invoke();
+        }
+
+        private void AwardEXP(GameObject attacker)
+        {
+            Experience experience = attacker.GetComponent<Experience>();
+            if (experience == null) return;
+            experience.GainEXP(GetComponent<BaseStats>().GetEXPReward());
         }
 
         public object CaptureState()

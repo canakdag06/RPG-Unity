@@ -194,6 +194,9 @@ PrefabInstance:
       addedObject: {fileID: 7012146330325348643}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      insertIndex: 5
+      addedObject: {fileID: 8150895920567739610}
+    - targetCorrespondingSourceObject: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5826521863176708696}
   m_SourcePrefab: {fileID: 100100000, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
@@ -224,6 +227,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
   m_PrefabInstance: {fileID: 7105189994181081980}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &8150895920567739610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697818914512751984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6f28e530e221474398719b445172406, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RPG.Attributes.Experience
+  experiencePoints: 0
 --- !u!114 &5826521863176708696
 MonoBehaviour:
   m_ObjectHideFlags: 0

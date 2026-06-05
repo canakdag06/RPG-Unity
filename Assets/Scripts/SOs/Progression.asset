@@ -16,28 +16,28 @@ MonoBehaviour:
   - characterClass: 0
     levels:
     - health: 50
-      damage: 0
+      expReward: 0
     - health: 60
-      damage: 0
+      expReward: 0
     - health: 70
-      damage: 0
+      expReward: 0
     - health: 80
-      damage: 0
+      expReward: 0
   - characterClass: 1
     levels:
     - health: 50
-      damage: 0
+      expReward: 5
     - health: 60
-      damage: 0
+      expReward: 10
     - health: 70
-      damage: 0
+      expReward: 15
   - characterClass: 2
     levels: []
   - characterClass: 3
     levels:
     - health: 30
-      damage: 0
+      expReward: 7
     - health: 40
-      damage: 0
+      expReward: 12
     - health: 50
-      damage: 0
+      expReward: 17
