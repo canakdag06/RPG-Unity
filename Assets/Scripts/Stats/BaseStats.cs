@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 
@@ -9,6 +10,8 @@ namespace RPG.Stats
         [SerializeField] int startingLevel = 1;
         [SerializeField] CharacterClass characterClass;
         [SerializeField] Progression progression = null;
+
+        public event Action<int> OnLevelChanged;
 
 
         public float GetStat(Stat stat)
@@ -30,9 +33,11 @@ namespace RPG.Stats
 
                 if(EXPToLevelUp > currentEXP)
                 {
+                    OnLevelChanged?.Invoke(level);
                     return level;
                 }
             }
+            OnLevelChanged?.Invoke(maxLevel);
             return maxLevel;
         }
     }
