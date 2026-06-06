@@ -41,5 +41,21 @@ namespace RPG.SceneManagement
         {
             GetComponent<SavingSystem>().Load(defaultSaveFile);
         }
+
+
+#if UNITY_EDITOR
+        [UnityEditor.MenuItem("RPG/Delete Save File (In Play Mode)")]
+        static void DeleteSaveFileFromMenu()
+        {
+            SavingWrapper wrapper = FindAnyObjectByType<SavingWrapper>();
+            if (wrapper == null) { Debug.LogWarning("SavingWrapper not found in scene."); return; }
+            wrapper.Delete();
+        }
+#endif
+
+        public void Delete()
+        {
+            GetComponent<SavingSystem>().Delete(defaultSaveFile);
+        }
     }
 }
