@@ -13,6 +13,12 @@ namespace RPG.Stats
 
         public event Action<int> OnLevelChanged;
 
+        private int currentLevel = 0;
+
+        private void Start()
+        {
+            currentLevel = CalculateLevel();
+        }
 
         public float GetStat(Stat stat)
         {
@@ -20,6 +26,16 @@ namespace RPG.Stats
         }
 
         public int GetLevel()
+        {
+            if(currentLevel < 1)
+            {
+                currentLevel = CalculateLevel();
+            }
+
+            return currentLevel;
+        }
+
+        public int CalculateLevel()
         {
             Experience exp = GetComponent<Experience>();
             if(exp == null) return startingLevel;

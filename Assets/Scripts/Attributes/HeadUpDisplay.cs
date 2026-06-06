@@ -45,7 +45,7 @@ public class HeadUpDisplay : MonoBehaviour
     {
         expText.text = $"EXP: {expPoints:0}";
 
-        level = stats.GetLevel();
+        level = stats.CalculateLevel();
         levelText.text = $"Level: {level}";
     }
 
