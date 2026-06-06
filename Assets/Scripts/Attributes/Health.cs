@@ -9,7 +9,7 @@ namespace RPG.Attributes
 {
     public class Health : MonoBehaviour, ISaveable
     {
-        [SerializeField] private float health = 100f;
+        private float health = -1f;
 
         public event Action OnDie;
         public event Action<float> OnHealthChanged;
@@ -22,7 +22,10 @@ namespace RPG.Attributes
 
         private void Start()
         {
-            health = GetComponent<BaseStats>().GetStat(Stat.Health);
+            if(health < 0)
+            {
+                health = GetComponent<BaseStats>().GetStat(Stat.Health);
+            }
         }
 
         public void TakeDamage(GameObject attacker, float damage)
