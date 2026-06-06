@@ -12,6 +12,11 @@ namespace RPG.Stats
 
         public float ExpPoints => experiencePoints;
 
+        private void Start()
+        {
+            OnExpChanged?.Invoke(experiencePoints);
+        }
+
         public void GainEXP(float exp)
         {
             experiencePoints += exp;
