@@ -91,6 +91,10 @@ PrefabInstance:
       value: 5028f0ac-be79-497e-a05a-d348bb3513a4
       objectReference: {fileID: 0}
     - target: {fileID: 291405560963275427, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      propertyPath: levelUpEffect
+      value: 
+      objectReference: {fileID: 6528094501471279362}
+    - target: {fileID: 291405560963275427, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       propertyPath: characterClass
       value: 0
       objectReference: {fileID: 0}
@@ -192,6 +196,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2195402951451774948, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7012146330325348643}
+    - targetCorrespondingSourceObject: {fileID: 2195402951451774948, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9181256487383882824}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       insertIndex: 5
@@ -258,4 +265,71 @@ MonoBehaviour:
 Transform:
   m_CorrespondingSourceObject: {fileID: 2195402951451774948, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
   m_PrefabInstance: {fileID: 7105189994181081980}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &8369450041345203647
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 9001877609418732696}
+    m_Modifications:
+    - target: {fileID: 814063401071673847, guid: c52fe021ba23bbc4f9a19608ef1d1e2e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814063401071673847, guid: c52fe021ba23bbc4f9a19608ef1d1e2e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814063401071673847, guid: c52fe021ba23bbc4f9a19608ef1d1e2e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814063401071673847, guid: c52fe021ba23bbc4f9a19608ef1d1e2e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 814063401071673847, guid: c52fe021ba23bbc4f9a19608ef1d1e2e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814063401071673847, guid: c52fe021ba23bbc4f9a19608ef1d1e2e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814063401071673847, guid: c52fe021ba23bbc4f9a19608ef1d1e2e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814063401071673847, guid: c52fe021ba23bbc4f9a19608ef1d1e2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814063401071673847, guid: c52fe021ba23bbc4f9a19608ef1d1e2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 814063401071673847, guid: c52fe021ba23bbc4f9a19608ef1d1e2e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6706832825010896301, guid: c52fe021ba23bbc4f9a19608ef1d1e2e, type: 3}
+      propertyPath: m_Name
+      value: LevelUpEffect
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c52fe021ba23bbc4f9a19608ef1d1e2e, type: 3}
+--- !u!198 &6528094501471279362 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 3368183605156250813, guid: c52fe021ba23bbc4f9a19608ef1d1e2e, type: 3}
+  m_PrefabInstance: {fileID: 8369450041345203647}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &9181256487383882824 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 814063401071673847, guid: c52fe021ba23bbc4f9a19608ef1d1e2e, type: 3}
+  m_PrefabInstance: {fileID: 8369450041345203647}
   m_PrefabAsset: {fileID: 0}

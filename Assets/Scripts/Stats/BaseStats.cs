@@ -11,6 +11,8 @@ namespace RPG.Stats
         [SerializeField] CharacterClass characterClass;
         [SerializeField] Progression progression = null;
 
+        [SerializeField] ParticleSystem levelUpEffect;
+
         public event Action<int> OnLevelChanged;
 
         private int currentLevel = 0;
@@ -18,6 +20,20 @@ namespace RPG.Stats
         private void Start()
         {
             currentLevel = CalculateLevel();
+
+            Experience exp = GetComponent<Experience>();
+            if (exp != null) exp.OnExpChanged += OnExpChanged;
+        }
+
+        private void OnDestroy()
+        {
+            Experience exp = GetComponent<Experience>();
+            if (exp != null) exp.OnExpChanged -= OnExpChanged;
+        }
+
+        private void OnExpChanged(float exp)
+        {
+            UpdateLevel();
         }
 
         public float GetStat(Stat stat)
@@ -27,7 +43,7 @@ namespace RPG.Stats
 
         public int GetLevel()
         {
-            if(currentLevel < 1)
+            if (currentLevel < 1)
             {
                 currentLevel = CalculateLevel();
             }
@@ -35,10 +51,22 @@ namespace RPG.Stats
             return currentLevel;
         }
 
-        public int CalculateLevel()
+        public int UpdateLevel()
+        {
+            int newLevel = CalculateLevel();
+            if (newLevel > currentLevel)
+            {
+                currentLevel = newLevel;
+                OnLevelChanged?.Invoke(currentLevel);
+                LevelUpEffect();
+            }
+            return currentLevel;
+        }
+
+        private int CalculateLevel()
         {
             Experience exp = GetComponent<Experience>();
-            if(exp == null) return startingLevel;
+            if (exp == null) return startingLevel;
 
             float currentEXP = exp.ExpPoints;
             int maxLevel = progression.GetLevels(Stat.EXPToLevelUp, characterClass);
@@ -47,14 +75,20 @@ namespace RPG.Stats
             {
                 float EXPToLevelUp = progression.GetStat(characterClass, Stat.EXPToLevelUp, level);
 
-                if(EXPToLevelUp > currentEXP)
+                if (EXPToLevelUp > currentEXP)
                 {
-                    OnLevelChanged?.Invoke(level);
                     return level;
                 }
             }
-            OnLevelChanged?.Invoke(maxLevel);
             return maxLevel;
+        }
+
+        private void LevelUpEffect()
+        {
+            if (levelUpEffect == null) return;
+
+            levelUpEffect.gameObject.SetActive(true);
+            levelUpEffect.Play();
         }
     }
 }

@@ -9,8 +9,6 @@ public class HeadUpDisplay : MonoBehaviour
     Experience experience;
     BaseStats stats;
 
-    int level;
-
     [SerializeField] TextMeshProUGUI healthText;
     [SerializeField] TextMeshProUGUI expText;
     [SerializeField] TextMeshProUGUI levelText;
@@ -28,12 +26,14 @@ public class HeadUpDisplay : MonoBehaviour
     {
         health.OnHealthChanged += UpdateHealthDisplay;
         experience.OnExpChanged += UpdateExpDisplay;
+        stats.OnLevelChanged += UpdateLevelDisplay;
     }
 
     private void OnDisable()
     {
         health.OnHealthChanged -= UpdateHealthDisplay;
         experience.OnExpChanged -= UpdateExpDisplay;
+        stats.OnLevelChanged -= UpdateLevelDisplay;
     }
 
     private void UpdateHealthDisplay(float percentage)
@@ -44,13 +44,10 @@ public class HeadUpDisplay : MonoBehaviour
     private void UpdateExpDisplay(float expPoints)
     {
         expText.text = $"EXP: {expPoints:0}";
-
-        level = stats.CalculateLevel();
-        levelText.text = $"Level: {level}";
     }
 
-    //private void UpdateLevelDisplay(int level)
-    //{
-    //    levelText.text = $"Level: {level}";
-    //}
+    private void UpdateLevelDisplay(int level)
+    {
+        levelText.text = $"Level: {level}";
+    }
 }
