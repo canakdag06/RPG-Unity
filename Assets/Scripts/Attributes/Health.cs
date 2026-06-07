@@ -20,6 +20,16 @@ namespace RPG.Attributes
 
         private bool isDead = false;
 
+        private void OnEnable()
+        {
+            GetComponent<BaseStats>().OnLevelChanged += RefillHealthOnLevelUp;
+        }
+
+        private void OnDisable()
+        {
+            GetComponent<BaseStats>().OnLevelChanged -= RefillHealthOnLevelUp;
+        }
+
         private void Start()
         {
             if(health < 0)
@@ -61,6 +71,16 @@ namespace RPG.Attributes
             Experience experience = attacker.GetComponent<Experience>();
             if (experience == null) return;
             experience.GainEXP(GetComponent<BaseStats>().GetStat(Stat.EXPReward));
+        }
+
+        private void RefillHealthOnLevelUp(int newLevel)
+        {
+            float newHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
+            if (newHealth > health)
+            {
+                health = newHealth;
+                OnHealthChanged?.Invoke(GetHealthPercentage());
+            }
         }
 
         public object CaptureState()
