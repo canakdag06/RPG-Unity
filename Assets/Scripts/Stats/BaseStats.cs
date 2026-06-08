@@ -17,19 +17,32 @@ namespace RPG.Stats
         public event Action<int> OnLevelChanged;
 
         private int currentLevel = 0;
+        private Experience experience;
+
+        private void Awake()
+        {
+            experience = GetComponent<Experience>();
+        }
+
+        private void OnEnable()
+        {
+            if (experience != null)
+            {
+                experience.OnExpChanged += OnExpChanged;
+            }
+        }
+
+        private void OnDisable()
+        {
+            if (experience != null)
+            {
+                experience.OnExpChanged -= OnExpChanged;
+            }
+        }
 
         private void Start()
         {
             currentLevel = CalculateLevel();
-
-            Experience exp = GetComponent<Experience>();
-            if (exp != null) exp.OnExpChanged += OnExpChanged;
-        }
-
-        private void OnDestroy()
-        {
-            Experience exp = GetComponent<Experience>();
-            if (exp != null) exp.OnExpChanged -= OnExpChanged;
         }
 
         private void OnExpChanged(float exp)
@@ -56,7 +69,7 @@ namespace RPG.Stats
         public int UpdateLevel()
         {
             int newLevel = CalculateLevel();
-            if (newLevel > currentLevel)
+            if (newLevel > currentLevel && currentLevel > 0)
             {
                 currentLevel = newLevel;
                 OnLevelChanged?.Invoke(currentLevel);
@@ -92,7 +105,7 @@ namespace RPG.Stats
 
         private float GetModifier(Stat stat)
         {
-            if(!useModifiers) return 0f;
+            if (!useModifiers) return 0f;
 
             float total = 0f;
 
