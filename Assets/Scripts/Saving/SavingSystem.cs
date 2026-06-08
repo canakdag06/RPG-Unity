@@ -36,23 +36,14 @@ namespace RPG.Saving
         public IEnumerator LoadLastScene(string saveFile)
         {
             Dictionary<string, object> state = LoadFile(saveFile);
+            int buildIndex = SceneManager.GetActiveScene().buildIndex;
 
-            if(state.ContainsKey("lastSceneBuildIndex"))
+            if (state.ContainsKey("lastSceneBuildIndex"))
             {
-                int index = (int)state["lastSceneBuildIndex"];
-
-                if (index != SceneManager.GetActiveScene().buildIndex)
-                {
-                    yield return SceneManager.LoadSceneAsync(index);
-                }
-                else
-                {
-                    Debug.Log("Same scene, no need to load");
-                }
+                buildIndex = (int)state["lastSceneBuildIndex"];
             }
-
+            yield return SceneManager.LoadSceneAsync(buildIndex);
             RestoreState(state);
-
         }
 
         private void SaveFile(string saveFile, object state)
@@ -71,7 +62,7 @@ namespace RPG.Saving
         {
             string path = GetPathFromSaveFile(saveFile);
 
-            if(!File.Exists(path))
+            if (!File.Exists(path))
             {
                 return new Dictionary<string, object>();
             }
@@ -79,7 +70,7 @@ namespace RPG.Saving
             using (FileStream stream = File.Open(path, FileMode.Open))
             {
                 BinaryFormatter formatter = new BinaryFormatter();
-                return (Dictionary<string, object>) formatter.Deserialize(stream);
+                return (Dictionary<string, object>)formatter.Deserialize(stream);
             }
         }
 
@@ -104,7 +95,7 @@ namespace RPG.Saving
             foreach (SaveableEntity saveable in FindObjectsByType<SaveableEntity>(FindObjectsSortMode.None))
             {
                 string id = saveable.GetID();
-                if(state.ContainsKey(id))
+                if (state.ContainsKey(id))
                 {
                     saveable.RestoreState(state[id]);
                 }

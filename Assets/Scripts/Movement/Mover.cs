@@ -9,19 +9,18 @@ namespace RPG.Movement
     public class Mover : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] private Transform target;
-
-        [SerializeField] private NavMeshAgent agent;
         [SerializeField] private Animator animator;
         [SerializeField] float speed;
 
 
         private const string ForwardSpeed = "forwardSpeed";
 
-
+        private NavMeshAgent agent;
         private Health health;
 
         private void Awake()
         {
+            agent = GetComponent<NavMeshAgent>();
             health = GetComponent<Health>();
         }
 
@@ -81,9 +80,9 @@ namespace RPG.Movement
         public void RestoreState(object state)
         {
             SerializableVector3 position = (SerializableVector3)state;
-            GetComponent<NavMeshAgent>().enabled = false;
+            agent.enabled = false;
             transform.position = position.ToVector();
-            GetComponent<NavMeshAgent>().enabled = true;
+            agent.enabled = true;
             GetComponent<ActionScheduler>().CancelCurrentAction();
         }
     }
