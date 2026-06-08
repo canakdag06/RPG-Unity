@@ -10,12 +10,14 @@ namespace RPG.Combat
         [SerializeField] AnimatorOverrideController animatorOverride = null;
 
         [SerializeField] float damage;
+        [SerializeField] float bonusDamagePercentage;
         [SerializeField] float range;
         [SerializeField] bool isRightHanded = true;
 
         [SerializeField] Projectile projectile = null;
 
         public float Damage { get { return damage; } }
+        public float BonusDamagePercentage { get { return bonusDamagePercentage; } }
         public float Range { get { return range; } }
 
         public GameObject Spawn(Transform rightHand, Transform leftHand, Animator animator)
