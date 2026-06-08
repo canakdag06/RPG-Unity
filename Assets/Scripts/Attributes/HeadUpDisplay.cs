@@ -38,7 +38,7 @@ public class HeadUpDisplay : MonoBehaviour
 
     private void UpdateHealthDisplay(float percentage)
     {
-        healthText.text = $"HP: {percentage:0}%";
+        healthText.text = $"HP: {health.HealthPoints:0}/{health.GetMaxHealthPoints():0}";
     }
 
     private void UpdateExpDisplay(float expPoints)

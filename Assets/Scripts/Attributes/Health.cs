@@ -15,6 +15,7 @@ namespace RPG.Attributes
         public event Action<float> OnHealthChanged;
 
         public bool IsDead => isDead;
+        public float HealthPoints => health;
 
         private const string dieTrigger = "die";
 
@@ -32,14 +33,16 @@ namespace RPG.Attributes
 
         private void Start()
         {
-            if(health < 0)
+            if (health < 0)
             {
-                health = GetComponent<BaseStats>().GetStat(Stat.Health);
+                health = GetMaxHealthPoints();
             }
         }
 
         public void TakeDamage(GameObject attacker, float damage)
         {
+            Debug.Log($"{gameObject.name} took {damage} damage from {attacker.name}");
+
             health = Mathf.Max(health - damage, 0f);
             OnHealthChanged?.Invoke(GetHealthPercentage());
 
@@ -50,9 +53,14 @@ namespace RPG.Attributes
             }
         }
 
+        public float GetMaxHealthPoints()
+        {
+            return GetComponent<BaseStats>().GetStat(Stat.Health);
+        }
+
         public float GetHealthPercentage()
         {
-            return (health / GetComponent<BaseStats>().GetStat(Stat.Health)) * 100;
+            return (health / GetMaxHealthPoints()) * 100;
         }
 
         private void Die()
@@ -75,7 +83,7 @@ namespace RPG.Attributes
 
         private void RefillHealthOnLevelUp(int newLevel)
         {
-            float newHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
+            float newHealth = GetMaxHealthPoints();
             if (newHealth > health)
             {
                 health = newHealth;
