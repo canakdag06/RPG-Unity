@@ -38,7 +38,7 @@ namespace RPG.Stats
 
         public float GetStat(Stat stat)
         {
-            return progression.GetStat(characterClass, stat, GetLevel());
+            return progression.GetStat(characterClass, stat, GetLevel()) + GetModifier(stat);
         }
 
         public int GetLevel()
@@ -81,6 +81,20 @@ namespace RPG.Stats
                 }
             }
             return maxLevel;
+        }
+
+        private float GetModifier(Stat stat)
+        {
+            float total = 0f;
+
+            foreach(IModifierProvider provider in GetComponents<IModifierProvider>())
+            {
+                foreach(float modifier in provider.GetModifier(stat))
+                {
+                    total += modifier;
+                }
+            }
+            return total;
         }
 
         private void LevelUpEffect()

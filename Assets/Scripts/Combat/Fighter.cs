@@ -3,12 +3,13 @@ using RPG.Core;
 using RPG.Movement;
 using RPG.Saving;
 using RPG.Stats;
+using System.Collections.Generic;
 using UnityEngine;
 
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction, ISaveable
+    public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider
     {
         [SerializeField] float attackCooldown = 1.0f;
         [SerializeField] Transform rightHand = null;
@@ -84,6 +85,14 @@ namespace RPG.Combat
 
             currentWeaponType = weapon;
             currentWeapon = currentWeaponType.Spawn(rightHand, leftHand, animator);
+        }
+
+        public IEnumerable<float> GetModifier(Stat stat)
+        {
+            if(stat == Stat.Damage)
+            {
+                yield return currentWeaponType.Damage;
+            }
         }
 
         // Animation Event

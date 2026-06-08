@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Weapon
   weaponPrefab: {fileID: 0}
   animatorOverride: {fileID: 0}
-  damage: 3
+  damage: 2
   range: 1.5
+  isRightHanded: 1
+  projectile: {fileID: 0}
