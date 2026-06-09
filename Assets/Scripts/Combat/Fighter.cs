@@ -49,7 +49,10 @@ namespace RPG.Combat
 
             if (!IsTargetInRange())
             {
-                mover.MoveTo(target.transform.position, 1f);
+                if (!IsPlayingAttackAnimation())
+                {
+                    mover.MoveTo(target.transform.position, 1f);
+                }
             }
             else
             {
@@ -134,6 +137,11 @@ namespace RPG.Combat
             Hit();
         }
 
+
+        private bool IsPlayingAttackAnimation()
+        {
+            return animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack");
+        }
 
         private bool IsTargetInRange()
         {
