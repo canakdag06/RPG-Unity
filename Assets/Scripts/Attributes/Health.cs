@@ -1,3 +1,4 @@
+using GameDevTV.Utils;
 using RPG.Core;
 using RPG.Saving;
 using RPG.Stats;
@@ -9,17 +10,24 @@ namespace RPG.Attributes
 {
     public class Health : MonoBehaviour, ISaveable
     {
-        private float health = -1f;
 
         public event Action OnDie;
         public event Action<float> OnHealthChanged;
 
+        LazyValue<float> health;
+
         public bool IsDead => isDead;
-        public float HealthPoints => health;
+        public float HealthPoints => health.value;
 
         private const string dieTrigger = "die";
 
         private bool isDead = false;
+
+
+        private void Awake()
+        {
+            health = new LazyValue<float>(GetMaxHealthPoints);
+        }
 
         private void OnEnable()
         {
@@ -33,20 +41,18 @@ namespace RPG.Attributes
 
         private void Start()
         {
-            if (health < 0)
-            {
-                health = GetMaxHealthPoints();
-            }
+            health.ForceInit();
         }
+
 
         public void TakeDamage(GameObject attacker, float damage)
         {
             Debug.Log($"{gameObject.name} took {damage} damage from {attacker.name}");
 
-            health = Mathf.Max(health - damage, 0f);
+            health.value = Mathf.Max(health.value - damage, 0f);
             OnHealthChanged?.Invoke(GetHealthPercentage());
 
-            if (health == 0f)
+            if (health.value == 0f)
             {
                 Die();
                 AwardEXP(attacker);
@@ -60,7 +66,7 @@ namespace RPG.Attributes
 
         public float GetHealthPercentage()
         {
-            return (health / GetMaxHealthPoints()) * 100;
+            return (health.value / GetMaxHealthPoints()) * 100;
         }
 
         private void Die()
@@ -84,23 +90,23 @@ namespace RPG.Attributes
         private void RefillHealthOnLevelUp(int newLevel)
         {
             float newHealth = GetMaxHealthPoints();
-            if (newHealth > health)
+            if (newHealth > health.value)
             {
-                health = newHealth;
+                health.value = newHealth;
                 OnHealthChanged?.Invoke(GetHealthPercentage());
             }
         }
 
         public object CaptureState()
         {
-            return health;
+            return health.value;
         }
 
         public void RestoreState(object state)
         {
-            health = (float)state;
+            health.value = (float)state;
 
-            if (health <= 0f)
+            if (health.value <= 0f)
             {
                 Die();
             }

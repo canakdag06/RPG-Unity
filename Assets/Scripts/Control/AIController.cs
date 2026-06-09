@@ -1,3 +1,4 @@
+using GameDevTV.Utils;
 using RPG.Attributes;
 using RPG.Combat;
 using RPG.Core;
@@ -20,9 +21,9 @@ namespace RPG.Control
         private Health health;
         private GameObject player;
 
-        private Vector3 guardPosition;
+        LazyValue<Vector3> guardPosition;
+        LazyValue<Quaternion> guardRotation;
         private int currentWaypointIndex = 0;
-        private Quaternion guardRotation;
         private float timeSinceLastSawPlayer = Mathf.Infinity;
         private float timeSinceArrivedAtWaypoint = Mathf.Infinity;
 
@@ -34,12 +35,15 @@ namespace RPG.Control
             health = GetComponent<Health>();
             mover = GetComponent<Mover>();
             player = GameObject.FindWithTag(playerTag);
+
+            guardPosition = new LazyValue<Vector3>(GetGuardPosition);
+            guardRotation = new LazyValue<Quaternion>(GetGuardRotation);
         }
 
         private void Start()
         {
-            guardPosition = transform.position;
-            guardRotation = transform.rotation;
+            guardPosition.ForceInit();
+            guardRotation.ForceInit();
         }
 
 
@@ -64,6 +68,16 @@ namespace RPG.Control
             UpdateTimers();
         }
 
+        private Vector3 GetGuardPosition()
+        {
+            return transform.position;
+        }
+
+        private Quaternion GetGuardRotation()
+        {
+            return transform.rotation;
+        }
+
         private void UpdateTimers()
         {
             timeSinceLastSawPlayer += Time.deltaTime;
@@ -83,7 +97,7 @@ namespace RPG.Control
 
         private void PatrolBehaviour()
         {
-            Vector3 nextPosition = guardPosition;
+            Vector3 nextPosition = guardPosition.value;
 
             if (patrolPath != null)
             {
@@ -99,18 +113,6 @@ namespace RPG.Control
                     mover.StartMoving(nextPosition, patrolSpeedMultiplier);
                 }
             }
-
-
-            //mover.StartMoving(nextPosition);
-
-            //if (Vector3.Distance(transform.position, guardPosition) < 0.2f)
-            //{
-            //    transform.rotation = Quaternion.RotateTowards(
-            //        transform.rotation,
-            //        guardRotation,
-            //        360f * Time.deltaTime
-            //    );
-            //}
         }
 
         private Vector3 GetCurrentWaypoint()
