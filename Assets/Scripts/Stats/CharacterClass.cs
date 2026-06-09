@@ -2,9 +2,9 @@ namespace RPG.Stats
 {
     public enum CharacterClass
     {
-        Player,
-        Grunt,
-        Mage,
-        Archer
+        Player = 0,
+        Grunt = 1,
+        Mage = 2,
+        Archer = 3
     }
 }
