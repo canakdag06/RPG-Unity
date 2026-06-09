@@ -42,6 +42,7 @@ namespace RPG.Attributes
         private void Start()
         {
             health.ForceInit();
+            OnHealthChanged?.Invoke(GetHealthPercentage());
         }
 
 

@@ -45,6 +45,7 @@ namespace RPG.Stats
         private void Start()
         {
             currentLevel.ForceInit();
+            OnLevelChanged?.Invoke(currentLevel.value);
         }
 
         private void OnExpChanged(float exp)
