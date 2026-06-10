@@ -7752,6 +7752,18 @@ PrefabInstance:
       propertyPath: ID
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3342025193790130064, guid: b598a88c5884c5c4dbce40b20512eb60, type: 3}
+      propertyPath: cursorMappings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342025193790130064, guid: b598a88c5884c5c4dbce40b20512eb60, type: 3}
+      propertyPath: cursorMappings.Array.data[2].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3342025193790130064, guid: b598a88c5884c5c4dbce40b20512eb60, type: 3}
+      propertyPath: cursorMappings.Array.data[2].texture
+      value: 
+      objectReference: {fileID: 2800000, guid: e43eb6dc9e9ce1f47bac91c53a5246fc, type: 3}
     - target: {fileID: 4605052952628812009, guid: b598a88c5884c5c4dbce40b20512eb60, type: 3}
       propertyPath: healthText
       value: 

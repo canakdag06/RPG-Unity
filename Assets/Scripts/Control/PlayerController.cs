@@ -51,9 +51,9 @@ namespace RPG.Control
 
                 foreach (IRaycastable raycastable in raycastables)
                 {
-                    if(raycastable.HandleRaycast(this))
+                    if (raycastable.HandleRaycast(this))
                     {
-                        SetCursor(CursorType.Attack);
+                        SetCursor(raycastable.GetCursorType());
                         return true;
                     }
                 }
@@ -68,13 +68,6 @@ namespace RPG.Control
 
 
         // --------------- Cursor ----------------
-
-        public enum CursorType
-        {
-            Default = 0,
-            Attack = 1,
-        }
-
         [System.Serializable]
         struct CursorMapping
         {

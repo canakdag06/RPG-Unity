@@ -21,6 +21,11 @@ namespace RPG.Combat
             return true;
         }
 
+        public CursorType GetCursorType()
+        {
+            return CursorType.Pickup;
+        }
+
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("Player"))
