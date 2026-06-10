@@ -265,6 +265,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   mover: {fileID: 1476012823582693511}
   health: {fileID: 1383814525937673720}
+  cursorMappings:
+  - type: 0
+    texture: {fileID: 2800000, guid: a9ae0267b06e7b24d90f188a4370cce3, type: 3}
+    hotspot: {x: 0, y: 0}
+  - type: 1
+    texture: {fileID: 2800000, guid: 78bdc1d51cd53a648ac0c56ff5aaf59f, type: 3}
+    hotspot: {x: 0, y: 0}
 --- !u!4 &9001877609418732696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2195402951451774948, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}

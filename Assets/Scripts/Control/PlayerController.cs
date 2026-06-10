@@ -11,6 +11,11 @@ namespace RPG.Control
         [SerializeField] private Mover mover;
         [SerializeField] private Health health;
 
+        private void Start()
+        {
+            SetCursor(CursorType.Default);
+        }
+
         void Update()
         {
             if (health.IsDead) { return; }
@@ -30,6 +35,7 @@ namespace RPG.Control
                 {
                     mover.StartMoving(hit.point, 1f);
                 }
+                SetCursor(CursorType.Default);
                 return true;
             }
             return false;
@@ -57,6 +63,7 @@ namespace RPG.Control
                 {
                     GetComponent<Fighter>().Attack(target.gameObject);
                 }
+                SetCursor(CursorType.Attack);
                 return true;
             }
             return false;
@@ -65,6 +72,43 @@ namespace RPG.Control
         private static Ray GetMouseRay()
         {
             return Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
+        }
+
+
+        // --------------- Cursor ----------------
+
+        public enum CursorType
+        {
+            Default = 0,
+            Attack = 1,
+        }
+
+        [System.Serializable]
+        struct CursorMapping
+        {
+            public CursorType type;
+            public Texture2D texture;
+            public Vector2 hotspot;
+        }
+
+        [SerializeField] CursorMapping[] cursorMappings;
+
+        private void SetCursor(CursorType type)
+        {
+            CursorMapping mapping = GetCursorMapping(type);
+            Cursor.SetCursor(mapping.texture, mapping.hotspot, CursorMode.Auto);
+        }
+
+        private CursorMapping GetCursorMapping(CursorType type)
+        {
+            foreach (CursorMapping mapping in cursorMappings)
+            {
+                if (mapping.type == type)
+                {
+                    return mapping;
+                }
+            }
+            return cursorMappings[0];
         }
     }
 }
