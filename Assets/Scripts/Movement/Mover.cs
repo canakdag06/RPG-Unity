@@ -35,7 +35,7 @@ namespace RPG.Movement
             UpdateAnimator();
         }
 
-        public void StartMoving(Vector3 destination, float multiplier)
+        public void StartMoving(Vector3 destination, float multiplier = 1f)
         {
             GetComponent<ActionScheduler>().StartAction(this);
             MoveTo(destination, multiplier);

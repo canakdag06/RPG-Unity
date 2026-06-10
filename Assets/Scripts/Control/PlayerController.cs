@@ -20,7 +20,7 @@ namespace RPG.Control
         {
             if (health.IsDead) { return; }
 
-            if (InteractWithCombat()) return;
+            if (InteractWithComponent()) return;
             if (SetDestination()) return;
             //Debug.Log("NOTHING");
         }
@@ -41,30 +41,22 @@ namespace RPG.Control
             return false;
         }
 
-        private bool InteractWithCombat()
+        private bool InteractWithComponent()
         {
             RaycastHit[] hits = Physics.RaycastAll(GetMouseRay());
 
             foreach (RaycastHit hit in hits)
             {
-                CombatTarget target = hit.transform.GetComponent<CombatTarget>();
+                IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
 
-                if (target == null)
+                foreach (IRaycastable raycastable in raycastables)
                 {
-                    continue;
+                    if(raycastable.HandleRaycast(this))
+                    {
+                        SetCursor(CursorType.Attack);
+                        return true;
+                    }
                 }
-
-                if (!GetComponent<Fighter>().CanAttack(target.gameObject))
-                {
-                    continue;
-                }
-
-                if (Mouse.current.rightButton.isPressed)
-                {
-                    GetComponent<Fighter>().Attack(target.gameObject);
-                }
-                SetCursor(CursorType.Attack);
-                return true;
             }
             return false;
         }
