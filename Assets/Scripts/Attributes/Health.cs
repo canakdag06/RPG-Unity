@@ -13,6 +13,7 @@ namespace RPG.Attributes
 
         public event Action OnDie;
         public event Action<float> OnHealthChanged;
+        public event Action<float> OnTakeDamage;
 
         LazyValue<float> health;
 
@@ -52,6 +53,7 @@ namespace RPG.Attributes
 
             health.value = Mathf.Max(health.value - damage, 0f);
             OnHealthChanged?.Invoke(GetHealthPercentage());
+            OnTakeDamage?.Invoke(damage);
 
             if (health.value == 0f)
             {

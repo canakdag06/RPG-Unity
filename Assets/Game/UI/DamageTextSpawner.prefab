@@ -44,4 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 520625aa1b468824482bf53e933d04f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.UI.DamageText.DamageTextSpawner
-  damageTextPrefab: {fileID: 7999848056339230222, guid: 288b252bb7c64374ab2fb408c2573b9a, type: 3}
+  damageTextPrefab: {fileID: 7387587244398733322, guid: 44db318b8c49c014395653f4d9c356eb, type: 3}

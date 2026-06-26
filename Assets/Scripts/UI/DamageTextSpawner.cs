@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+using RPG.Attributes;
 using UnityEngine;
 
 namespace RPG.UI.DamageText
@@ -8,9 +7,25 @@ namespace RPG.UI.DamageText
     {
         [SerializeField] DamageText damageTextPrefab = null;
 
-        public void Spawn(float damageAmount)
+        Health health;
+
+        void Start()
         {
-            DamageText instance = Instantiate<DamageText>(damageTextPrefab, transform);
+            health = GetComponentInParent<Health>();
+            health.OnTakeDamage += Spawn;
+        }
+
+        void OnDestroy()
+        {
+            if (health != null)
+                health.OnTakeDamage -= Spawn;
+        }
+
+        void Spawn(float damageAmount)
+        {
+            DamageText instance = Instantiate(damageTextPrefab, transform);
+            instance.SetText(damageAmount);
+            instance.PopUpAnimation();
         }
     }
 }
