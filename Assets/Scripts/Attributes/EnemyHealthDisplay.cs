@@ -5,11 +5,13 @@ using UnityEngine;
 public class EnemyHealthDisplay : MonoBehaviour
 {
     [SerializeField] TextMeshPro healthText;
+    [SerializeField] TextMeshPro damageText;
     Health health;
 
     private void Awake()
     {
         health = GetComponentInParent<Health>();
+        damageText.gameObject.SetActive(false);
     }
 
     private void OnEnable()
