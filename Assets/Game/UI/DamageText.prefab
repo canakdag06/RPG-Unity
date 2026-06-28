@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75528a80773daf744a88a6fe5d2e2c60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.UI.DamageText.DamageText
-  duration: 1
-  moveDistance: 1.5
+  duration: 0.5
+  moveDistance: 1
   moveEase: 9
   fadeEase: 5
 --- !u!1 &6703370121161528588

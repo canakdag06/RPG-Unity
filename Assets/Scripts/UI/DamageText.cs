@@ -6,8 +6,8 @@ namespace RPG.UI.DamageText
 {
     public class DamageText : MonoBehaviour
     {
-        [SerializeField] float duration = 1f;
-        [SerializeField] float moveDistance = 1.5f;
+        [SerializeField] float duration;
+        [SerializeField] float moveDistance;
         [SerializeField] Ease moveEase = Ease.OutCubic;
         [SerializeField] Ease fadeEase = Ease.InQuad;
 
@@ -31,11 +31,16 @@ namespace RPG.UI.DamageText
 
         public void PopUpAnimation()
         {
-            transform
-                .DOMove(transform.position + Vector3.up * moveDistance, duration)
+            float punchDuration = 0.25f;
+
+            DOTween.Sequence()
+                .Append(transform.DOPunchScale(Vector3.one * 0.4f, punchDuration, vibrato: 1, elasticity: 0.5f))
+                .Append(transform.DOScale(0.8f, duration - punchDuration).SetEase(Ease.InQuad));
+
+            transform.DOLocalMoveY(transform.localPosition.y + moveDistance, duration)
                 .SetEase(moveEase);
 
-            tmp.material.DOFade(0f, duration)
+            tmp.DOFade(0f, duration)
                 .SetEase(fadeEase)
                 .OnComplete(() => Destroy(gameObject));
         }
