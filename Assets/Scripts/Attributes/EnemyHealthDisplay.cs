@@ -1,15 +1,17 @@
 using RPG.Attributes;
-using TMPro;
 using UnityEngine;
 
 public class EnemyHealthDisplay : MonoBehaviour
 {
-    [SerializeField] TextMeshPro healthText;
+    [SerializeField] SpriteRenderer healthBarFill;
     Health health;
+
+    float maxWidth;
 
     private void Awake()
     {
         health = GetComponentInParent<Health>();
+        maxWidth = healthBarFill.size.x;
     }
 
     private void OnEnable()
@@ -24,11 +26,12 @@ public class EnemyHealthDisplay : MonoBehaviour
 
     private void UpdateHealthDisplay(float percentage)
     {
-        healthText.text = $"{percentage:0}";
-        if(percentage <= 0)
+        float fillFraction = Mathf.Clamp01(percentage / 100f);
+        healthBarFill.size = new Vector2(maxWidth * fillFraction, healthBarFill.size.y);
+
+        if (percentage <= 0)
         {
-            healthText.gameObject.SetActive(false);
-            enabled = false;
+            gameObject.SetActive(false);
         }
     }
 
