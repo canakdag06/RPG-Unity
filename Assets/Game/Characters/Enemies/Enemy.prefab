@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c162d320cb85ba842aee4bf018233159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyHealthDisplay
-  healthBarFill: {fileID: 5387537504890592429}
+  healthBarFill: {fileID: 2848420767156871298}
 --- !u!1 &5373192927984634574
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,9 +285,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa2a4efece022c3498c96f538a6e7565, type: 3}
---- !u!212 &5387537504890592429 stripped
+--- !u!212 &2848420767156871298 stripped
 SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5839061533461337776, guid: aa2a4efece022c3498c96f538a6e7565, type: 3}
+  m_CorrespondingSourceObject: {fileID: 4344703495366929055, guid: aa2a4efece022c3498c96f538a6e7565, type: 3}
   m_PrefabInstance: {fileID: 2003225900606638621}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &5816424665579369858 stripped
