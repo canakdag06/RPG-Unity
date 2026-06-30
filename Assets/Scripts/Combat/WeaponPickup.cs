@@ -1,3 +1,4 @@
+using RPG.Attributes;
 using RPG.Control;
 using RPG.Movement;
 using System.Collections;
@@ -10,6 +11,7 @@ namespace RPG.Combat
     public class WeaponPickup : MonoBehaviour, IRaycastable
     {
         [SerializeField] WeaponConfig weapon = null;
+        [SerializeField] private float healthToRestore = 50f;
         private float respawnDelay = 2f;
 
         public bool HandleRaycast(PlayerController callingController)
@@ -30,16 +32,26 @@ namespace RPG.Combat
         {
             if (other.CompareTag("Player"))
             {
-                PickUp(other.GetComponent<Fighter>());
-                other.GetComponent<Fighter>().EquipWeapon(weapon);
-                StartCoroutine(HideForSeconds(respawnDelay));
-                //Destroy(gameObject);
+                PickUp(other.gameObject);
+
+                //PickUp(other.GetComponent<Fighter>());
+                //other.GetComponent<Fighter>().EquipWeapon(weapon);
+                //StartCoroutine(HideForSeconds(respawnDelay));
             }
         }
 
-        private void PickUp(Fighter fighter)
+        private void PickUp(GameObject subject)
         {
-            fighter.EquipWeapon(weapon);
+            if(weapon != null)
+            {
+                subject.GetComponent<Fighter>().EquipWeapon(weapon);
+            }
+
+            if(healthToRestore > 0)
+            {
+                subject.GetComponent<Health>().Heal(healthToRestore);
+            }
+
             StartCoroutine(HideForSeconds(respawnDelay));
         }
 
