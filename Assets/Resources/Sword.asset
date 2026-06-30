@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefb2c41e907cb0469731b92bc2f8ca8, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Weapon
-  weaponPrefab: {fileID: 1021505266652956429, guid: e63ee7dfa0a5f604b9c442b77fab21af, type: 3}
+  weaponPrefab: {fileID: -8150732623870637843, guid: e63ee7dfa0a5f604b9c442b77fab21af, type: 3}
   animatorOverride: {fileID: 22100000, guid: e5e4a26c5dd0e494ea825f7dd6d48f72, type: 2}
   damage: 15
   bonusDamagePercentage: 10

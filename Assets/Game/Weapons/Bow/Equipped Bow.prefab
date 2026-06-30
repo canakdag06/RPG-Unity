@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4351221488857646477}
+  - component: {fileID: -5566740633877670797}
   m_Layer: 2
   m_Name: Equipped Bow
   m_TagString: Untagged
@@ -32,6 +33,18 @@ Transform:
   - {fileID: 3375577812576674688}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-5566740633877670797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2868597450894001297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de9473b498c14040aa7cc8c2e20df6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Weapon
 --- !u!1001 &3375240935119295882
 PrefabInstance:
   m_ObjectHideFlags: 0

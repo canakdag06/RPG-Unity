@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefb2c41e907cb0469731b92bc2f8ca8, type: 3}
   m_Name: Bow
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Weapon
-  weaponPrefab: {fileID: 2868597450894001297, guid: 966167bf03e8c144bbc8e99483167e8a, type: 3}
+  weaponPrefab: {fileID: -5566740633877670797, guid: 966167bf03e8c144bbc8e99483167e8a, type: 3}
   animatorOverride: {fileID: 22100000, guid: b3dc46b7e9947a244b89f687f4d6585f, type: 2}
   damage: 8
+  bonusDamagePercentage: 0
   range: 15
   isRightHanded: 0
   projectile: {fileID: 5753082571448359969, guid: bed88afb78f78d944a3421ae7a869c2a, type: 3}
