@@ -76,7 +76,7 @@ Transform:
   m_GameObject: {fileID: 3886816188581938317}
   serializedVersion: 2
   m_LocalRotation: {x: 0.16042991, y: 0.37686962, z: -0.066452235, w: 0.9098438}
-  m_LocalPosition: {x: -34.7695, y: 6.7354646, z: -33.9295}
+  m_LocalPosition: {x: -36.375744, y: 8.037795, z: -35.535744}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachinePositionComposer
-  CameraDistance: 7.42
+  CameraDistance: 10
   DeadZoneDepth: 0
   Composition:
     ScreenPosition: {x: 0, y: 0.15}
@@ -185,12 +185,12 @@ Transform:
   m_GameObject: {fileID: 6507282995660828091}
   serializedVersion: 2
   m_LocalRotation: {x: 0.16042991, y: 0.37686962, z: -0.066452235, w: 0.9098438}
-  m_LocalPosition: {x: -34.769505, y: 6.735465, z: -33.929504}
+  m_LocalPosition: {x: -36.375744, y: 8.037795, z: -35.535744}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 779327295368382544}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20.1, y: 45, z: 0}
 --- !u!20 &8353029724917184500
 Camera:
   m_ObjectHideFlags: 0
@@ -614,6 +614,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 779327295368382544}
     m_Modifications:
+    - target: {fileID: 5826521863176708696, guid: 5f9ee0116b488554cb7ffb0e1ed56bb4, type: 3}
+      propertyPath: cursorMappings.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826521863176708696, guid: 5f9ee0116b488554cb7ffb0e1ed56bb4, type: 3}
+      propertyPath: cursorMappings.Array.data[2].type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5826521863176708696, guid: 5f9ee0116b488554cb7ffb0e1ed56bb4, type: 3}
+      propertyPath: cursorMappings.Array.data[2].texture
+      value: 
+      objectReference: {fileID: 2800000, guid: e43eb6dc9e9ce1f47bac91c53a5246fc, type: 3}
+    - target: {fileID: 6981869833358173609, guid: 5f9ee0116b488554cb7ffb0e1ed56bb4, type: 3}
+      propertyPath: ID
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 7012146330325507671, guid: 5f9ee0116b488554cb7ffb0e1ed56bb4, type: 3}
       propertyPath: m_Layer
       value: 2
