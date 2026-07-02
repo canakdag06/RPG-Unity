@@ -12,6 +12,7 @@ namespace RPG.Control
     {
         [SerializeField] float chaseDistance = 5f;
         [SerializeField] float suspicionTimer = 5f;
+        [SerializeField] float aggroCooldownTime = 5f;
         [SerializeField] float waypointTimer = 5f;
         [SerializeField] float patrolSpeedMultiplier = 0.5f;
         [SerializeField] PatrolPath patrolPath;
@@ -26,6 +27,7 @@ namespace RPG.Control
         private int currentWaypointIndex = 0;
         private float timeSinceLastSawPlayer = Mathf.Infinity;
         private float timeSinceArrivedAtWaypoint = Mathf.Infinity;
+        float timeSinceAggrevated = Mathf.Infinity;
 
         private const string playerTag = "Player";
 
@@ -40,6 +42,16 @@ namespace RPG.Control
             guardRotation = new LazyValue<Quaternion>(GetGuardRotation);
         }
 
+        private void OnEnable()
+        {
+            health.OnTakeDamage += OnDamageTaken;
+        }
+
+        private void OnDisable()
+        {
+            health.OnTakeDamage -= OnDamageTaken;
+        }
+
         private void Start()
         {
             guardPosition.ForceInit();
@@ -52,7 +64,7 @@ namespace RPG.Control
             if (health.IsDead) { return; }
 
 
-            if (IsInAttackRange() && fighter.CanAttack(player))
+            if (IsAggrevated() && fighter.CanAttack(player))
             {
                 AttackBehaviour();
             }
@@ -66,6 +78,16 @@ namespace RPG.Control
             }
 
             UpdateTimers();
+        }
+
+        public void Aggrevate()
+        {
+            timeSinceAggrevated = 0;
+        }
+
+        private void OnDamageTaken(float damage)
+        {
+            Aggrevate();
         }
 
         private Vector3 GetGuardPosition()
@@ -82,6 +104,7 @@ namespace RPG.Control
         {
             timeSinceLastSawPlayer += Time.deltaTime;
             timeSinceArrivedAtWaypoint += Time.deltaTime;
+            timeSinceAggrevated += Time.deltaTime;
         }
 
         private void AttackBehaviour()
@@ -130,10 +153,10 @@ namespace RPG.Control
             return Vector3.Distance(transform.position, GetCurrentWaypoint()) < 1f;
         }
 
-        private bool IsInAttackRange()
+        private bool IsAggrevated()
         {
             float distanceToPlayer = Vector3.Distance(player.transform.position, transform.position);
-            return distanceToPlayer < chaseDistance;
+            return distanceToPlayer < chaseDistance || timeSinceAggrevated < aggroCooldownTime;
         }
 
         private void OnDrawGizmosSelected()
