@@ -48,7 +48,7 @@ namespace RPG.Combat
 
             if (target == null || target.IsDead) return;
 
-            if (!IsTargetInRange())
+            if (!IsTargetInRange(target.transform))
             {
                 if (!IsPlayingAttackAnimation())
                 {
@@ -84,12 +84,16 @@ namespace RPG.Combat
         public bool CanAttack(GameObject combatTarget)
         {
             if (combatTarget == null) { return false; }
-            if (!GetComponent<Mover>().CanMoveTo(combatTarget.transform.position)) { return false; }
+            if (!GetComponent<Mover>().CanMoveTo(combatTarget.transform.position) &&
+                !IsTargetInRange(combatTarget.transform))
+            {
+                return false;
+            }
 
             Health targetToTest = combatTarget.GetComponent<Health>();
             return targetToTest != null && !targetToTest.IsDead;
         }
-        
+
         public void EquipWeapon(WeaponConfig weapon)
         {
             if (currentWeapon.value != null)
@@ -156,9 +160,9 @@ namespace RPG.Combat
             return animator.GetCurrentAnimatorStateInfo(0).IsTag("Attack");
         }
 
-        private bool IsTargetInRange()
+        private bool IsTargetInRange(Transform targetTransform)
         {
-            float distance = (target.transform.position - transform.position).sqrMagnitude;
+            float distance = (targetTransform.position - transform.position).sqrMagnitude;
 
             if (distance < currentWeaponConfig.Range * currentWeaponConfig.Range)
                 return true;
