@@ -5,6 +5,7 @@ namespace RPG.Control
     {
         Default = 0,
         Attack = 1,
-        Pickup = 2
+        Pickup = 2,
+        CannotPickup = 3,
     }
 }

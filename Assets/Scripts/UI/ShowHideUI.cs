@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace GameDevTV.UI
 {
     public class ShowHideUI : MonoBehaviour
     {
-        [SerializeField] KeyCode toggleKey = KeyCode.Escape;
+        [SerializeField] Key toggleKey = Key.Escape;
         [SerializeField] GameObject uiContainer = null;
 
         // Start is called before the first frame update
@@ -18,7 +19,7 @@ namespace GameDevTV.UI
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(toggleKey))
+            if (Keyboard.current != null && Keyboard.current[toggleKey].wasPressedThisFrame)
             {
                 uiContainer.SetActive(!uiContainer.activeSelf);
             }

@@ -73,7 +73,7 @@ namespace RPG.Control
 
             foreach (RaycastHit hit in hits)
             {
-                IRaycastable[] raycastables = hit.transform.GetComponents<IRaycastable>();
+                IRaycastable[] raycastables = hit.transform.GetComponentsInParent<IRaycastable>();
 
                 foreach (IRaycastable raycastable in raycastables)
                 {
