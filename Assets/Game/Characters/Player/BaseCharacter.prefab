@@ -41,6 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2195402951451774948}
+  - component: {fileID: 3956291469839712815}
   - component: {fileID: 291405560963275427}
   - component: {fileID: 4361488922919772450}
   - component: {fileID: 6798315265316899125}
@@ -50,7 +51,6 @@ GameObject:
   - component: {fileID: 1065251960489458018}
   - component: {fileID: 312105676602178287}
   - component: {fileID: 710034206452292240}
-  - component: {fileID: 179617562051927765}
   m_Layer: 0
   m_Name: BaseCharacter
   m_TagString: Untagged
@@ -74,6 +74,19 @@ Transform:
   - {fileID: 2912663766739975783}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3956291469839712815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1886560329797105164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameDevTV.Saving.SaveableEntity
+  uniqueIdentifier: 0a035b5f-875c-4371-9722-d378c1a4a9c6
 --- !u!114 &291405560963275427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -162,6 +175,7 @@ MonoBehaviour:
   target: {fileID: 0}
   animator: {fileID: 6798315265316899125}
   speed: 3
+  maxNavPathLength: 40
 --- !u!114 &1874938760815827230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +191,7 @@ MonoBehaviour:
   attackCooldown: 2
   rightHand: {fileID: 0}
   leftHand: {fileID: 0}
-  defaultWeaponType: {fileID: 0}
+  defaultWeapon: {fileID: 0}
 --- !u!114 &1065251960489458018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -240,19 +254,6 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
---- !u!114 &179617562051927765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1886560329797105164}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df12dd645e7297f47b05e29b0935d6d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RPG.Saving.SaveableEntity
-  ID: 51e7e6c2-ac47-4754-a3d3-7b39b31d84e1
 --- !u!1001 &1138098797720926587
 PrefabInstance:
   m_ObjectHideFlags: 0

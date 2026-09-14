@@ -190,15 +190,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3956291469839712815, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      propertyPath: uniqueIdentifier
+      value: player
+      objectReference: {fileID: 0}
     - target: {fileID: 4231041093000419662, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710687710934215480, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      propertyPath: uniqueIdentifier
+      value: player
       objectReference: {fileID: 0}
     - target: {fileID: 8566248295670998011, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       propertyPath: speed
       value: 5.66
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 179617562051927765, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+    - {fileID: 5710687710934215480, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2195402951451774948, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
@@ -209,11 +219,20 @@ PrefabInstance:
       addedObject: {fileID: 9181256487383882824}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
-      insertIndex: 5
+      insertIndex: 4
       addedObject: {fileID: 8150895920567739610}
     - targetCorrespondingSourceObject: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 5826521863176708696}
+    - targetCorrespondingSourceObject: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6312528559171887254}
+    - targetCorrespondingSourceObject: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2992899565959663173}
+    - targetCorrespondingSourceObject: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8512209645622211401}
   m_SourcePrefab: {fileID: 100100000, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
 --- !u!114 &1383814525937673720 stripped
 MonoBehaviour:
@@ -270,7 +289,7 @@ MonoBehaviour:
   mover: {fileID: 1476012823582693511}
   health: {fileID: 1383814525937673720}
   maxNavMeshProjectionDistance: 1
-  maxNavPathLength: 40
+  raycastRadius: 1
   cursorMappings:
   - type: 0
     texture: {fileID: 2800000, guid: a9ae0267b06e7b24d90f188a4370cce3, type: 3}
@@ -278,6 +297,43 @@ MonoBehaviour:
   - type: 1
     texture: {fileID: 2800000, guid: 78bdc1d51cd53a648ac0c56ff5aaf59f, type: 3}
     hotspot: {x: 0, y: 0}
+--- !u!114 &6312528559171887254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697818914512751984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19fc28a888c18ce4a82d521912c49df1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameDevTV.Inventories.Inventory
+  inventorySize: 16
+--- !u!114 &2992899565959663173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697818914512751984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b11801ca435999e4e96afb1bcc282d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameDevTV.Inventories.Equipment
+--- !u!114 &8512209645622211401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8697818914512751984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a19ff972ec6859b48870488d7b1e81b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GameDevTV.Inventories.ActionStore
 --- !u!4 &9001877609418732696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2195402951451774948, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
