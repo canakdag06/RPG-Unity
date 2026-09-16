@@ -12,9 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefb2c41e907cb0469731b92bc2f8ca8, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Weapon
+  itemID: f3206194-d36d-464b-8c70-f83291d232d2
+  displayName: Fire Ball
+  description: 
+  icon: {fileID: 21300000, guid: 4dc051a0301cecb4aa1a85036ace2a58, type: 3}
+  pickup: {fileID: 827383027430231407, guid: c03f71c9dff9b114c83c5da4c57de120, type: 3}
+  stackable: 0
+  allowedEquipLocation: 5
   weaponPrefab: {fileID: 0}
   animatorOverride: {fileID: 22100000, guid: e0c0e64869684d14eb7573d68590a4d3, type: 2}
   damage: 13
+  bonusDamagePercentage: 0
   range: 10
   isRightHanded: 0
   projectile: {fileID: 5753082571448359969, guid: e7e9bd8474aaff846a5e31efc3132680, type: 3}

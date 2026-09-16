@@ -12,9 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fefb2c41e907cb0469731b92bc2f8ca8, type: 3}
   m_Name: Unarmed
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Combat.Weapon
+  itemID: 34c16725-4df9-4749-8a9e-bf92203b4f30
+  displayName: Unarmed
+  description: 
+  icon: {fileID: 0}
+  pickup: {fileID: 0}
+  stackable: 0
+  allowedEquipLocation: 5
   weaponPrefab: {fileID: 0}
   animatorOverride: {fileID: 0}
   damage: 2
+  bonusDamagePercentage: 0
   range: 1.5
   isRightHanded: 1
   projectile: {fileID: 0}

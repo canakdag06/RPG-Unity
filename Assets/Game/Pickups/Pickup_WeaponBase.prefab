@@ -10,9 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7199849736876428679}
   - component: {fileID: 7525322048832910373}
-  - component: {fileID: 2563929227553594049}
+  - component: {fileID: 3807304498879621724}
+  - component: {fileID: 4190784493148527233}
   m_Layer: 0
-  m_Name: Pickup_Base
+  m_Name: Pickup_WeaponBase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,7 +55,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2563929227553594049
+--- !u!114 &3807304498879621724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -63,7 +64,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 3089121910059772709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbd33e56a844be740a6834af64eb9f30, type: 3}
+  m_Script: {fileID: 11500000, guid: 91f208ba0dbe65d478b628ca24b59c42, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WeaponPickup
-  weapon: {fileID: 11400000, guid: 34670a83821692e49be6483baad89778, type: 2}
+  m_EditorClassIdentifier: Assembly-CSharp::GameDevTV.Inventories.Pickup
+--- !u!114 &4190784493148527233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3089121910059772709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a233adc5640032469f8e65db15a428f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RPG.Control.ClickablePickup
