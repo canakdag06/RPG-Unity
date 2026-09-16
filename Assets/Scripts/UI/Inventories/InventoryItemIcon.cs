@@ -18,6 +18,14 @@ namespace GameDevTV.UI.Inventories
         [SerializeField] GameObject textContainer = null;
         [SerializeField] TextMeshProUGUI itemNumber = null;
 
+        // CACHE
+        Sprite defaultSprite;
+
+        private void Awake()
+        {
+            defaultSprite = GetComponent<Image>().sprite;
+        }
+
         // PUBLIC
 
         public void SetItem(InventoryItem item)
@@ -30,7 +38,8 @@ namespace GameDevTV.UI.Inventories
             var iconImage = GetComponent<Image>();
             if (item == null)
             {
-                iconImage.enabled = false;
+                iconImage.sprite = defaultSprite;
+                iconImage.enabled = defaultSprite != null;
             }
             else
             {
