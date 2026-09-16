@@ -15,6 +15,7 @@ namespace GameDevTV.UI.Inventories
         // CONFIG DATA
 
         [SerializeField] InventoryItemIcon icon = null;
+        [SerializeField] Image placeholder = null;
         [SerializeField] EquipLocation equipLocation = EquipLocation.Weapon;
 
         // CACHE
@@ -32,6 +33,12 @@ namespace GameDevTV.UI.Inventories
         private void Start() 
         {
             RedrawUI();
+        }
+
+        private void OnTransformChildrenChanged() 
+        {
+            // The icon gets reparented to the canvas while it is being dragged.
+            UpdatePlaceholder();
         }
 
         // PUBLIC
@@ -78,6 +85,15 @@ namespace GameDevTV.UI.Inventories
         void RedrawUI()
         {
             icon.SetItem(playerEquipment.GetItemInSlot(equipLocation));
+            UpdatePlaceholder();
+        }
+
+        void UpdatePlaceholder()
+        {
+            if (placeholder == null || playerEquipment == null) return;
+
+            bool isDragging = icon.transform.parent != transform;
+            placeholder.enabled = GetItem() == null || isDragging;
         }
     }
 }
