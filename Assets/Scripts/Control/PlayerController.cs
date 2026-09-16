@@ -4,6 +4,7 @@ using RPG.Movement;
 using System;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 namespace RPG.Control
@@ -16,6 +17,8 @@ namespace RPG.Control
         [SerializeField] float maxNavMeshProjectionDistance = 1f;
         [SerializeField] float raycastRadius = 1f;
 
+        private bool isDraggingUI = false;
+
         private void Start()
         {
             SetCursor(CursorType.Default);
@@ -23,8 +26,8 @@ namespace RPG.Control
 
         void Update()
         {
+            if (InteractWithUI()) return;
             if (health.IsDead) { return; }
-
             if (InteractWithComponent()) return;
             if (SetDestination()) return;
             //Debug.Log("NOTHING");
@@ -65,6 +68,28 @@ namespace RPG.Control
             target = navMeshHit.position;
 
             return true;
+        }
+
+        private bool InteractWithUI()
+        {
+            if (Mouse.current.leftButton.wasReleasedThisFrame)
+            {
+                isDraggingUI = false;
+            }
+            if (EventSystem.current.IsPointerOverGameObject())
+            {
+                if (Mouse.current.leftButton.wasPressedThisFrame)
+                {
+                    isDraggingUI = true;
+                }
+                SetCursor(CursorType.Default);
+                return true;
+            }
+            if (isDraggingUI)
+            {
+                return true;
+            }
+            return false;
         }
 
         private bool InteractWithComponent()
