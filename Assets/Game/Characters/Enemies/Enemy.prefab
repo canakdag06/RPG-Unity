@@ -229,6 +229,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8154034267418189198}
+    - targetCorrespondingSourceObject: {fileID: 1886560329797105164, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4301878911682022772}
   m_SourcePrefab: {fileID: 100100000, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
 --- !u!4 &2084955722497887318 stripped
 Transform:
@@ -271,9 +274,31 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Control.AIController
   chaseDistance: 5
   suspicionTimer: 5
+  aggroCooldownTime: 5
   waypointTimer: 5
   patrolSpeedMultiplier: 0.5
+  shoutDistance: 5
   patrolPath: {fileID: 0}
+--- !u!114 &4301878911682022772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3362769395052839997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a052470639039418ef1fbd614fb066, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RPG.Inventories.RandomDropper
+  scatterDistance: 1
+  dropLibrary:
+  - {fileID: 11400000, guid: 7a13297d017487047a4973630c5fb8ab, type: 2}
+  - {fileID: 11400000, guid: e230f1845071dd24c9d0923b9653da1d, type: 2}
+  - {fileID: 11400000, guid: feac49279aab6564899368de5e8093af, type: 2}
+  - {fileID: 11400000, guid: 181b76f03ab617848a5676bc99db77f9, type: 2}
+  - {fileID: 11400000, guid: cd2dc1c306716384f90d35a4cef4bada, type: 2}
+  numberOfDrops: 2
 --- !u!1001 &4001595311707936821
 PrefabInstance:
   m_ObjectHideFlags: 0
