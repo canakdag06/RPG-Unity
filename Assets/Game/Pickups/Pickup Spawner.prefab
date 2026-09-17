@@ -59,4 +59,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameDevTV.Saving.SaveableEntity
-  uniqueIdentifier: 4bdb6cbf-4dd3-484b-8d7f-b13604cc7152
+  uniqueIdentifier: 0576dacb-039c-4edc-b7c7-d046404686ca
