@@ -11,7 +11,7 @@ using GameDevTV.Inventories;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction, ISaveable, IModifierProvider
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] float attackCooldown = 1.0f;
         [SerializeField] Transform rightHand = null;
@@ -130,22 +130,6 @@ namespace RPG.Combat
         {
             Animator animator = GetComponent<Animator>();
             return weapon.Spawn(rightHand, leftHand, animator);
-        }
-
-        public IEnumerable<float> GetModifier(Stat stat)
-        {
-            if (stat == Stat.Damage)
-            {
-                yield return currentWeaponConfig.Damage;
-            }
-        }
-
-        public IEnumerable<float> GetPercentageModifier(Stat stat)
-        {
-            if (stat == Stat.Damage)
-            {
-                yield return currentWeaponConfig.BonusDamagePercentage;
-            }
         }
 
         // Animation Event

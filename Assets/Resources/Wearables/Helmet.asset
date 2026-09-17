@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8b5521c2fce50f43b789bd7b0449ab8, type: 3}
+  m_Name: Helmet
+  m_EditorClassIdentifier: Assembly-CSharp::RPG.Inventories.StatsEquipableItem
+  itemID: a201bb0c-affc-4add-bf8c-55ba86cb1f94
+  displayName: Helmet
+  description: 
+  icon: {fileID: 21300000, guid: fd6e4fc32c78509458fc45ea4a478ba8, type: 3}
+  pickup: {fileID: 1556167545245045646, guid: 7bc77253f87fe474a956d25ed3cbe1e5, type: 3}
+  stackable: 0
+  allowedEquipLocation: 0
+  additiveModifiers:
+  - stat: 0
+    value: 20
+  percentageModifiers: []

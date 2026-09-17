@@ -2391,10 +2391,10 @@ PrefabInstance:
     - target: {fileID: 7735233691959351366, guid: 9bf7152a2ffca8c4db53aeec3e53b61e, type: 3}
       propertyPath: item
       value: 
-      objectReference: {fileID: 11400000, guid: 7a13297d017487047a4973630c5fb8ab, type: 2}
+      objectReference: {fileID: 11400000, guid: e230f1845071dd24c9d0923b9653da1d, type: 2}
     - target: {fileID: 9107746344161429305, guid: 9bf7152a2ffca8c4db53aeec3e53b61e, type: 3}
       propertyPath: m_Name
-      value: Hat (Pickup Spawner)
+      value: Helmet (Pickup Spawner)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8314,7 +8314,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1556881122272712736, guid: b598a88c5884c5c4dbce40b20512eb60, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.00031897443
+      value: -0.0010342126
       objectReference: {fileID: 0}
     - target: {fileID: 1568060546775942086, guid: b598a88c5884c5c4dbce40b20512eb60, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -8447,6 +8447,10 @@ PrefabInstance:
     - target: {fileID: 2963420991311005022, guid: b598a88c5884c5c4dbce40b20512eb60, type: 3}
       propertyPath: inventorySize
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3082593486530370715, guid: b598a88c5884c5c4dbce40b20512eb60, type: 3}
+      propertyPath: uniqueIdentifier
+      value: 72a2b8bd-c96f-4be9-9ab8-a0ef8590d56e
       objectReference: {fileID: 0}
     - target: {fileID: 3202122779336507000, guid: b598a88c5884c5c4dbce40b20512eb60, type: 3}
       propertyPath: m_AnchoredPosition.x
