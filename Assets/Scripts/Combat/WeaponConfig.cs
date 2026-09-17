@@ -23,6 +23,7 @@ namespace RPG.Combat
         public float Damage { get { return damage; } }
         public float BonusDamagePercentage { get { return bonusDamagePercentage; } }
         public float Range { get { return range; } }
+        public bool HasAnimatorOverride => animatorOverride != null;
 
         public Weapon Spawn(Transform rightHand, Transform leftHand, Animator animator)
         {
@@ -41,10 +42,6 @@ namespace RPG.Combat
             if (animatorOverride != null)
             {
                 animator.runtimeAnimatorController = animatorOverride;
-            }
-            else
-            {
-                Debug.LogWarning("No animator override found for " + name);
             }
 
             return weaponInstance;

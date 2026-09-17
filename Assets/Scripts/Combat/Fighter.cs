@@ -22,6 +22,7 @@ namespace RPG.Combat
         private Mover mover;
         private Equipment equipment;
         private Animator animator;
+        RuntimeAnimatorController defaultAnimator;
         WeaponConfig currentWeaponConfig;
         LazyValue<Weapon> currentWeapon;
 
@@ -34,6 +35,7 @@ namespace RPG.Combat
         {
             mover = GetComponent<Mover>();
             animator = GetComponent<Animator>();
+            defaultAnimator = animator.runtimeAnimatorController;
 
             currentWeaponConfig = defaultWeapon;
             currentWeapon = new LazyValue<Weapon>(SetupDefaultWeapon);
@@ -128,8 +130,14 @@ namespace RPG.Combat
 
         private Weapon AttachWeapon(WeaponConfig weapon)
         {
-            Animator animator = GetComponent<Animator>();
-            return weapon.Spawn(rightHand, leftHand, animator);
+            Weapon weaponInstance = weapon.Spawn(rightHand, leftHand, animator);
+
+            if (!weapon.HasAnimatorOverride)
+            {
+                animator.runtimeAnimatorController = defaultAnimator;
+            }
+
+            return weaponInstance;
         }
 
         // Animation Event
