@@ -190,10 +190,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3956291469839712815, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
-      propertyPath: uniqueIdentifier
-      value: 1d7c1fb0-8067-49b3-8084-1314e46c1ae2
-      objectReference: {fileID: 0}
     - target: {fileID: 4231041093000419662, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2
@@ -350,6 +346,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RPG.Inventories.RandomDropper
   scatterDistance: 1
+  dropLibrary: {fileID: 0}
 --- !u!4 &9001877609418732696 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2195402951451774948, guid: 2e4ab57cefafc824eb3e0258286ff0b2, type: 3}
