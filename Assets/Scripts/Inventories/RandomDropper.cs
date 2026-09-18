@@ -1,5 +1,6 @@
 using GameDevTV.Inventories;
 using RPG.Attributes;
+using RPG.Stats;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -9,8 +10,7 @@ namespace RPG.Inventories
     {
         [Tooltip("How far can the pickups be scattered from the dropper")]
         [SerializeField] float scatterDistance = 1f;
-        [SerializeField] InventoryItem[] dropLibrary;
-        [SerializeField] int numberOfDrops = 2;
+        [SerializeField] DropLibrary dropLibrary;
 
         private Health health;
 
@@ -23,23 +23,26 @@ namespace RPG.Inventories
 
         private void OnEnable()
         {
-            if(dropLibrary.Length == 0) return;
+            // if(dropLibrary.Length == 0) return;
             health.OnDie += RandomDrop;
         }
 
         private void OnDisable()
         {
-            if(dropLibrary.Length == 0) return;
+            // if(dropLibrary.Length == 0) return;
             health.OnDie -= RandomDrop;
         }
 
         public void RandomDrop()
         {
-            for (int i = 0; i < numberOfDrops; i++)
+            var baseStats = GetComponent<BaseStats>();
+            var drops = dropLibrary.GetRandomDrops(baseStats.GetLevel());
+
+            foreach(var drop in drops)
             {
-                var item = dropLibrary[Random.Range(0, dropLibrary.Length)];
-                DropItem(item, 1);
+                DropItem(drop.item, drop.number);
             }
+
         }
 
         protected override Vector3 GetDropLocation()
